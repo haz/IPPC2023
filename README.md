@@ -30,7 +30,8 @@ Since 2004, probabilistic tracks have been part of the IPC under different names
 
 ## Organizers
 - Ayal Taitler
-- [Scott Sanner] (https://www.mie.utoronto.ca/faculty_staff/sanner/) (University of Toronto)
+- [Scott Sanner](https://www.mie.utoronto.ca/faculty_staff/sanner/)
+
 
 
 ## Welcome to GitHub Pages
