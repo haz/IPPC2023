@@ -10,6 +10,14 @@ Since 2004, probabilistic tracks have been part of the IPC under different names
 
 ## Preliminary Schedule
 
+| Event        | Date          |
+|:-------------|:------------------|
+| ok           | good swedish fish |
+| out of stock | good and plenty   |
+| ok           | good `oreos`      |
+| ok           | good `zoute` drop |
+
+
 ## Tracks
 
 ## Registration
