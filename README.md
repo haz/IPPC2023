@@ -10,12 +10,17 @@ Since 2004, probabilistic tracks have been part of the IPC under different names
 
 ## Preliminary Schedule
 
-| Event        | Date          |
-|:-------------|:------------------|
-| ok           | good swedish fish |
-| out of stock | good and plenty   |
-| ok           | good `oreos`      |
-| ok           | good `zoute` drop |
+| Event                                         | Date             |
+|:----------------------------------------------|:-----------------|
+| Expression of interest                        | June, 2022       |
+| Infrastructure release with sample domains    | July, 2022       |
+| Call for domains and praticipants             | August, 2022     |
+| Final domains announcement                    | November, 2022   |
+| Competitors registration                      | December, 2022   |
+| Planner abstract dubmission                   | March, 2023      |
+| contest run                                   | April, 2023      |
+| Results announced                             | June, 2023       |
+| ok                                            | good `zout` drop |
 
 
 ## Tracks
@@ -29,8 +34,8 @@ Since 2004, probabilistic tracks have been part of the IPC under different names
 ## Results
 
 ## Organizers
-- Ayal Taitler
-- [Scott Sanner](https://www.mie.utoronto.ca/faculty_staff/sanner/)
+- [Ayal Taitler](https://sites.google.com/view/ataitler/home) (University of Toronto)
+- [Scott Sanner](https://www.mie.utoronto.ca/faculty_staff/sanner/) (University of Toronto)
 
 
 
