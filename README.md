@@ -7,9 +7,9 @@ Since 2004, probabilistic tracks have been part of the IPC under different names
 
 ## Calls
 
-```
 ## Preliminary Schedule
 
+```
 | Event                                         | Date             |
 |:----------------------------------------------|:-----------------|
 | Expression of interest                        | June, 2022       |
