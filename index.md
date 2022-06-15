@@ -9,7 +9,7 @@ Since 2004, probabilistic tracks have been part of the IPC under different names
 
 ## Preliminary Schedule
 
-```
+
 | Event                                         | Date             |
 |:----------------------------------------------|:-----------------|
 | Expression of interest                        | June, 2022       |
@@ -20,7 +20,7 @@ Since 2004, probabilistic tracks have been part of the IPC under different names
 | Planner abstract dubmission                   | March, 2023      |
 | Contest run                                   | April, 2023      |
 | Results announced                             | June, 2023       |
-```
+
 
 
 ## Tracks
