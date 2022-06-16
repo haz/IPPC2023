@@ -32,7 +32,10 @@ Coming soon!
 Coming soon!
 
 ## Setup
-Coming soon!
+
+![RDDLGym diagram](/IPPC2023/assets/images/RDDLGym.jpg)
+
+More coming soon!
 
 ## Domains
 
