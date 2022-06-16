@@ -44,7 +44,7 @@ The incoming water from other tanks is a cumulative sum of all flows to the tank
 
 
 <details>
-  <summary style="font-size:14px; font-weight:bold">Multi-tank reservoir control</summary>
+  <summary style="font-size:18px; font-weight:bold">Multi-tank reservoir control</summary>
   
   <p>
   The reservoir domain represents a network of water tanks interconnected in a DAG structure.
