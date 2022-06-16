@@ -34,7 +34,7 @@ Coming soon!
 Coming soon!
 
 ## Domains
-<h3> Multi-tank reservoir control <h/3>
+<h3> Multi-tank reservoir control </h3>
 
 
 ### Multi-zone HVAC control
