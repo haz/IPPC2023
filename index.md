@@ -39,7 +39,6 @@ Coming soon!
 <details>
   <summary style="font-size:18px; font-weight:bold">Multi-tank reservoir control</summary>
   
-  ```
   The reservoir domain represents a network of water tanks interconnected in a DAG structure.
   Each tank state is the tank actual water level, which is bounded by zero from bellow and the maximum height of the tank from above. Any excess of water beyond the 
   top of the tank is spilled out and lost. The inflow to the tank is the inflow from other tanks, and stochastic rainfall. The outflow is the stochastic evaporation of 
@@ -47,7 +46,7 @@ Coming soon!
 
   The incoming water from other tanks is a cumulative sum of all flows to the tank. The outflow is controlled by the release, which defines an absolute amount leaving
   the tank, which then dispensed equally among the connected tanks. The goal is to keep all the tanks water levels between the minimum and maximum bounds.
-  ```
+
 </details>
 
 <hr>
@@ -55,14 +54,16 @@ Coming soon!
 <details>
   <summary style="font-size:18px; font-weight:bold">Multi-rover Mars science mission</summary>
 
-  <p>
+
     Multi-agent path finding (MAPF) problem, where agents starts from a some initial position, and should harvast as many minerals as possible. Each mineral is
     locatied randomly at the instatiation of the problem, and has different value. Agent dynamics in each axis is a second order integrator i.e., linear rate of change
     
     for each agent the state vector is the position and velocity, and the action is the acceleration. The full state vector is the stacking of all agents' states, and 
     similarly for the actions. The reward is the total rewards collected from harvesting the mineral, minus the power consumption usued throughout the process.
-  </p>
+
 </details>
+
+<hr>
 
 #### **Multi-zone HVAC control**
 
