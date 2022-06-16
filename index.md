@@ -82,8 +82,6 @@ Power generation is in integer units, consumption is real, and time steps are as
 
 More information coming soon!
 
-## Results
-Coming soon!
 
 ## Organizers
 - [Ayal Taitler](https://sites.google.com/view/ataitler/home) (University of Toronto)
