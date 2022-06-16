@@ -65,7 +65,7 @@ Coming soon!
 
 <hr>
 
-**Multi-zone HVAC control***
+**Multi-zone HVAC control**
 
 The Heating Ventilation and Air-Conditioning (HVAC) domain deals with a problem of a zone temperature being regulated by a heat source, and a fan.
 <hr>
