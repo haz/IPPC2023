@@ -63,6 +63,14 @@ similarly for the actions. The reward is the total rewards collected from harves
 The Heating Ventilation and Air-Conditioning (HVAC) domain deals with a problem of a zone temperature being regulated by a heat source, and a fan.
 <hr>
 
+**Power Unit Commitment**
+
+A number of power producers cooperate to meet daily demand that fluctuates according to the maximum temperature on a given day. 
+A cost is incurred for every unit of power produced and income is received for every unit consumed by the demand.  
+There is a large penalty for failing to meet demand on a given day and there are per-power plant penalties for deviating from the previous day's production at each plant -- some plants must pay higher operating costs for changes in production.
+Power generation is in integer units, consumption is real, and time steps are assumed to span 24 hours.
+
+<hr>
 
 More information coming soon!
 
