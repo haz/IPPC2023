@@ -50,6 +50,8 @@ Coming soon!
   ```
 </details>
 
+<hr>
+
 <details>
   <summary style="font-size:18px; font-weight:bold">Multi-rover Mars science mission</summary>
 
