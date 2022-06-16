@@ -34,7 +34,17 @@ Coming soon!
 Coming soon!
 
 ## Domains
-Coming soon!
+### Multi-tank reservoir control
+#### Discrete
+#### Continuous
+
+### Multi-zone HVAC control
+
+### Multi-rovers Mars science mission
+
+### Power Unit Commitment
+
+More information coming soon!
 
 ## Results
 Coming soon!
