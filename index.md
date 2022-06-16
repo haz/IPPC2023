@@ -33,6 +33,8 @@ Coming soon!
 
 ## Setup
 
+<img src="docs/assets/images/RDDLGym.jpg" alt="Image description">
+
 ![RDDLGym diagram](/IPPC2023/assets/images/RDDLGym.jpg)
 
 More coming soon!
