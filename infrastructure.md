@@ -54,7 +54,7 @@ The loop will run for the amount of time steps specified in the instance `horizo
 from Env import RDDLEnv as RDDLEnv
 from Policies.Agents import RandomAgent
 
-myEnv = RDDLEnv.RDDLEnv(domain=FOLDER+'domain.rddl', instance=FOLDER+'insta0.rddl', is_grounded=False)
+myEnv = RDDLEnv.RDDLEnv(domain='domain.rddl', instance='instance.rddl')
 agent = RandomAgent(action_space=myEnv.action_space, num_actions=myEnv.NumConcurrentActions)
 
 total_reward = 0
