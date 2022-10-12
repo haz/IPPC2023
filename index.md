@@ -1,4 +1,4 @@
-<p style="font-size:30px;text-align:center"><b>Welcome to the 2023 International Probabilistic Planning Competition</b></p>
+<p style="font-size:30px;text-align:center"><b>Welcome to the 2023 International</b></p>
 <p style="font-size:30px;text-align:center"><b>Probabilistic Planning Competition</b></p>
 
 The International Probabilistic Planning Competition is organized in the context of the International Conference on Planning and Scheduling (ICAPS). It empirically evaluates state-of-the-art planning systems on a number of benchmark problems. The goals of the IPC are to promote planning research, highlight challenges in the planning community and provide new and interesting problems as benchmarks for future research.
