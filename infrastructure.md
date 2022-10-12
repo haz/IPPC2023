@@ -1,4 +1,4 @@
-<p style="font-size:30px;text-align:center">RDDL and the pyRDDLGym Infrastructure</p>
+<p style="font-size:30px;text-align:center"><b>RDDL and the pyRDDLGym Infrastructure</b></p>
 
 The problems in this year's competition will be described in the RDDL language.
 RDDL is intended to compactly support the representation of a wide range of relational MDPs and POMDPs and support the efficient simulation of these domains. The domains will be simulated via autogenerating environment simulator and interacted via the standard [Gym](https://www.gymlibrary.dev/) interface. Simply put, the pyRDDLSim takes textual problem description in RDDL, and generates a gym environment without writing a single line of python code.
@@ -21,9 +21,18 @@ Please cite as
 
 ## pyRDDLSim
 ### Getting started
-The pyRDDLGym infrastructure is available in: [pyRDDLGym](https://github.com/ataitler/pyRDDLGym)
+The pyRDDLGym infrastructure is available for cloning: 'https://github.com/ataitler/pyRDDLGym.git'
+
+Read the [Readme page](https://github.com/ataitler/pyRDDLGym/README) for information on the framework contents, examples, and more.
 
 ### Basic usage
+
+#### Initializing Environments
+Initializing environments is very easy in pyRDDLGym and can be done via:
+'
+from Env.RDDLEnv import RDDLEnv as RDDLEnv
+myEnv = RDDLEnv(domain="domain.rddl", instance='instance.rddl')
+'
 
 
 
