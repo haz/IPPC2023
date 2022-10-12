@@ -49,7 +49,7 @@ agent = RandomAgent(action_space=myEnv.action_space, num_actions=myEnv.NumConcur
 
 Let’s see what a complete the agent-environment loop looks like in pyRDDLGym.
 This example will run the instance `instance.rddl` of the problem specified in the file `domain.rddl`.
-The loop will run for the amount of time steps specified in the instance `horizon` field. if the env.render() function will be used we will also see a window pop up rendering the environment
+The loop will run for the amount of time steps specified in the environment `horizon` field. if the env.render() function will be used we will also see a window pop up rendering the environment
 ```python
 from Env import RDDLEnv as RDDLEnv
 from Policies.Agents import RandomAgent
