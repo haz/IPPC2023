@@ -28,7 +28,10 @@ Read the [Readme page](https://github.com/ataitler/pyRDDLGym/README) for informa
 ## Basic usage
 
 ### Initializing Environments
-Initializing environments is very easy in pyRDDLGym and can be done via: `from Env.RDDLEnv import RDDLEnv as RDDLEnv
-myEnv = RDDLEnv(domain="domain.rddl", instance='instance.rddl')`
+Initializing environments is very easy in pyRDDLGym and can be done via: 
+```
+from Env.RDDLEnv import RDDLEnv as RDDLEnv
+myEnv = RDDLEnv(domain="domain.rddl", instance='instance.rddl')
+```
 
 
