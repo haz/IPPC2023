@@ -16,6 +16,13 @@ Please cite as
       note = "http://users.cecs.anu.edu.au/~ssanner/IPPC_2011/RDDL.pdf",
       year = 2010}
 ```
+`
+@unpublished{Sanner:RDDL,
+      author = "Scott Sanner",
+      title = "Relational Dynamic Influence Diagram Language (RDDL): Language Description",
+      note = "http://users.cecs.anu.edu.au/~ssanner/IPPC_2011/RDDL.pdf",
+      year = 2010}
+`
 
 [RDDL tutorial](https://sites.google.com/site/rddltutorial/)
 
