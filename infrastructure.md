@@ -16,13 +16,13 @@ Please cite as
       note = "http://users.cecs.anu.edu.au/~ssanner/IPPC_2011/RDDL.pdf",
       year = 2010}
 ```
-`
-@unpublished{Sanner:RDDL,
+```
+`@unpublished{Sanner:RDDL,
       author = "Scott Sanner",
       title = "Relational Dynamic Influence Diagram Language (RDDL): Language Description",
       note = "http://users.cecs.anu.edu.au/~ssanner/IPPC_2011/RDDL.pdf",
-      year = 2010}
-`
+      year = 2010}`
+```
 
 [RDDL tutorial](https://sites.google.com/site/rddltutorial/)
 
@@ -36,9 +36,9 @@ Read the [Readme page](https://github.com/ataitler/pyRDDLGym/README) for informa
 
 ### Initializing Environments
 Initializing environments is very easy in pyRDDLGym and can be done via:
-
+```
 `from Env.RDDLEnv import RDDLEnv as RDDLEnv
 myEnv = RDDLEnv(domain="domain.rddl", instance='instance.rddl')`
-
+```
 
 
