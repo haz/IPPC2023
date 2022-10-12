@@ -19,7 +19,8 @@ Please cite as
 
 [RDDL tutorial](https://sites.google.com/site/rddltutorial/)
 
-## Basic usage
+## pyRDDLSim
+### Basic usage
 
 
 
