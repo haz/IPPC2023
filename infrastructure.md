@@ -8,6 +8,16 @@ Simply put, the pyRDDLSim takes textual problem description in RDDL and generate
 ## Getting started with RDDL
 [RDDL language guide](http://users.cecs.anu.edu.au/~ssanner/IPPC_2011/RDDL.pdf)
 
+Please cite as
+
+```markdown
+@unpublished{Sanner:RDDL,
+      author = "Scott Sanner",
+      title = "Relational Dynamic Influence Diagram Language (RDDL): Language Description",
+      note = "http://users.cecs.anu.edu.au/~ssanner/IPPC_2011/RDDL.pdf",
+      year = 2010}
+```
+
 [RDDL tutorial](https://sites.google.com/site/rddltutorial/)
 
 ## Basic usage
