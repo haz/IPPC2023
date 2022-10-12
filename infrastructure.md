@@ -9,36 +9,26 @@ RDDL is intended to compactly support the representation of a wide range of rela
 
 Please cite as
 
-```markdown
+```
 @unpublished{Sanner:RDDL,
       author = "Scott Sanner",
       title = "Relational Dynamic Influence Diagram Language (RDDL): Language Description",
       note = "http://users.cecs.anu.edu.au/~ssanner/IPPC_2011/RDDL.pdf",
       year = 2010}
 ```
-```
-`@unpublished{Sanner:RDDL,
-      author = "Scott Sanner",
-      title = "Relational Dynamic Influence Diagram Language (RDDL): Language Description",
-      note = "http://users.cecs.anu.edu.au/~ssanner/IPPC_2011/RDDL.pdf",
-      year = 2010}`
-```
 
 [RDDL tutorial](https://sites.google.com/site/rddltutorial/)
 
 # pyRDDLSim
 ## Getting started
-The pyRDDLGym infrastructure is available for cloning: 'https://github.com/ataitler/pyRDDLGym.git'
+The pyRDDLGym infrastructure is available for cloning: `https://github.com/ataitler/pyRDDLGym.git`
 
 Read the [Readme page](https://github.com/ataitler/pyRDDLGym/README) for information on the framework contents, examples, and more.
 
 ## Basic usage
 
 ### Initializing Environments
-Initializing environments is very easy in pyRDDLGym and can be done via:
-```
-`from Env.RDDLEnv import RDDLEnv as RDDLEnv
+Initializing environments is very easy in pyRDDLGym and can be done via: `from Env.RDDLEnv import RDDLEnv as RDDLEnv
 myEnv = RDDLEnv(domain="domain.rddl", instance='instance.rddl')`
-```
 
 
