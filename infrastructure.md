@@ -37,10 +37,10 @@ myEnv = RDDLEnv.RDDLEnv(domain="domain.rddl", instance='instance.rddl')
 ### Interacting with the Environment
 pyRDDLGym is build on Gym as so implements the classic “agent-environment loop”. 
 The infrastructure comes with two simple agents:
-```
-1. NoOpAgent - which allows the environment to evolve according to the default behavior as specified in the RDDL file.
-2. RandomAgent - which sends a rendom action according to the env.action_space and the maximum number of allowed concurrent actions as specified in the RDDL file.
-```
+
+1. **NoOpAgent** - which allows the environment to evolve according to the default behavior as specified in the RDDL file.
+2. **RandomAgent** - which sends a rendom action according to the env.action_space and the maximum number of allowed concurrent actions as specified in the RDDL file.
+
 
 Using a pre existing agent, or using of of your own is as simple as:
 ```python
