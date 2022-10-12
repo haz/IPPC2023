@@ -5,6 +5,7 @@ The International Probabilistic Planning Competition is organized in the context
 Since 2004, probabilistic tracks have been part of the IPC under different names (as the International Probabilistic Planning competition or as part of the uncertainty tracks). After 2004, 2006, 2008, 2011, 2014, and 2018, the 7th IPPC will be held in 2023 and conclude together with ICAPS, in June 2023, in 
 Prague (Czech Republic). This time it is organized by Ayal Taitler and Scott Sanner.
 
+[Infrastructure](/infrastructure.md)
 
 ## Calls
 Coming soon!
