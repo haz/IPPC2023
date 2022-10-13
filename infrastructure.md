@@ -78,9 +78,12 @@ The conversion is as following:
 - int -> Discrete with bounds as specified in `action-preconditions`, or with `np.inf` and symetric bounds.
 - bool -> Discrete(2)
 
-note: enum types are not supported by pyRDDLGym at this stage.
+There is no need in pyRDDLGym to specify the values of all the existing action in the RDDL domain description, only thus the agent wishes to assign non-default values, the infrastructure will construct the full action vector as necessery with the default action values according to the RDDL description.
 
-### Domains
+Note: enum types are not supported by pyRDDLGym at this stage.
 
-#### Custom user defined domains
+### Custom user defined domains
+
+Writing a new user defined domains is as easy as writing a few lines of text in a mathematical fashion!
+All is required is to specify the lifted constants, variables (all are refered as fluents in RDDL), behavior/dynamic of the problem and generating an instance with the actual objects and initial state in RDDL - and pyRDDLGym will do the rest.
 
