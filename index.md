@@ -35,9 +35,13 @@ Coming soon!
 
 ## Setup
 
+This year's competition will be using the generic pyRDDLGym - an autogeneration tool for gym environments from RDDL textual description.
+
 <img src="images/RDDLGym.jpg" alt="RDDLGym diagram">
 
-More coming soon!
+More information about the infrastructure, how to use it and how to add user defined domains can be found in this short
+[Infrastructure guide](/infrastructure.md).
+
 
 ## Domains
 
