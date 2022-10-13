@@ -43,22 +43,28 @@ There are four domains at the time of the competition call, but more domains wil
 
 <div class="image123" style="center">
     <div style="float:left;margin-right:5px;">
-        <a href="infrastructure.html">
+        <a href="rover.html">
         <img src="images/Rover_image.gif" height="190" width="190"  />
         <p style="text-align:center;">Mars Rovers Science Mission</p>
         </a>
     </div>
     <div style="float:left;margin-right:5px;">
+        <a href="recsim.html">
         <img class="middle-img" src="images/Rover_image.gif" height="190" width="190" />
         <p style="text-align:center;">Recommendation systems</p>
+        </a>
     </div>
     <div style="float:left;margin-right:5px;">
+        <a href="powergen.html">
         <img src="images/Rover_image.gif" height="190" width="190" />
         <p style="text-align:center;">Power Unit Commitment</p>
+        </a>
     </div>
     <div style="float:left;margin-right:5px;">
+        <a href="uav.html">
         <img src="images/Rover_image.gif" height="190" width="190" />
-        <p style="text-align:center;">Power Unit Commitment</p>
+        <p style="text-align:center;">UAV</p>
+        </a>
     </div>
 </div>
 
