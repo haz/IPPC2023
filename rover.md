@@ -4,11 +4,6 @@
         <img src="images/Rover_image.gif" height="190" width="190" class="center" />
 </a>
 
-| Import folder     | Mars_rover  |
-|:------------------|:------------|
-| Action space      | Dict        |
-| State space       | Dict        |
-
 |       |      |
 |:------------------|:------------|
 | Import folder     | Mars_rover  |
