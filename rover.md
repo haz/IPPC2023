@@ -33,7 +33,7 @@ for each agent the state vector is the position and velocity, and the action is 
 
 The reward function is defined as 
 
-$$r_t = \sum_{d \in drones} -power_x(d)^2 - power_y(d)^2 - harvesta\_ction(d) + harvest(d,m) $$ 
+$$r_t = \sum_{d \in drones} -power_x(d)^2 - power_y(d)^2 - harvest\_action(d) + harvest(d,m) $$ 
 
 where, 
 - $power_x(d)$ - is the current force in the x axis of drone *d*.
