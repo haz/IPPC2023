@@ -68,7 +68,6 @@ There are four domains at the time of the competition call, but more domains wil
     </div>
 </div>
 
-<br>
 <!--
 **Multi-tank reservoir control**
 
@@ -110,7 +109,10 @@ There is a large penalty for failing to meet demand on a given day and there are
 Power generation is in integer units, consumption is real, and time steps are assumed to span 24 hours.
 
 <hr>
+
 -->
+
+<br>
 
 ## Registration
 Coming soon!
