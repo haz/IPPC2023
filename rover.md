@@ -14,20 +14,26 @@ for each agent the state vector is the position and velocity, and the action is 
 
 ## Action Space
 
-| Action               | type              |  Desc                         |
-|:---------------------|:------------------|:------------------------------|
-| power_x(drone)      | Box(1, float32)   |  Propelling force in x axis       |
-| power_y(drone)      | Box(1, float32)   |     Propelling force in y axis    |
-| harvest(drone)      | Discrete(2)       |  Harvest if in mineral area   |
+The actions are the forces operating on the drones by their motors in the *x* and *y* axes (decoupled model), and a harvest action that can be applied by a drone if it is in a mineral harvest region, the result of the harvest action if applicable is that the mineral is harvested, and cannot be harvested again.
+
+| Action               | type             |  Desc                          |
+|:---------------------|:-----------------|:-------------------------------|
+| power_x(drone)      | Box(1, float32)   |  Propelling force in x axis    |
+| power_y(drone)      | Box(1, float32)   |     Propelling force in y axis |
+| harvest(drone)      | Discrete(2)       |  Harvest if in mineral area    |
 
 ## State Space
 
-| State                | type              |  Desc                         |
-|:---------------------|:------------------|:------------------------------|
-| pos_x(drone)         | Box(1, float32)   | Position in x axis            |
-| vel_x(drone)         | Box(1, float32)   |  Velocity in x axis           |
-| pos_y(drone)         | Box(1, float32)   |  Position in y axis           |
-| vel_y(drone)         | Box(1, float32)   |  Velocity in y axis           |
+The state space represents the positions and velocities of all the drones in the problem, as well as the state of all the minearls in the domain.
+The location and harvesting regions of the minearls are not part of the state, but are available through the non fluents in the problem.
+
+| State                      | type              |  Desc                                   |
+|:---------------------------|:------------------|:----------------------------------------|
+| pos_x(drone)               | Box(1, float32)   | Position in x axis                      |
+| vel_x(drone)               | Box(1, float32)   |  Velocity in x axis                     |
+| pos_y(drone)               | Box(1, float32)   |  Position in y axis                     |
+| vel_y(drone)               | Box(1, float32)   |  Velocity in y axis                     |
+| mineral_harvested(mineral) | Discrete(2)       |  True if the minearl was not harvested  |
 
 ## Rewards
 
