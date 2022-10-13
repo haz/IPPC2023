@@ -9,6 +9,11 @@
 | Action space      | Dict        |
 | State space       | Dict        |
 
+|       |      |
+|:------------------|:------------|
+| Import folder     | Mars_rover  |
+| Action space      | Dict        |
+| State space       | Dict        |
 
 
 ## Description
