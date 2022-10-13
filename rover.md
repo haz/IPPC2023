@@ -14,22 +14,27 @@ for each agent the state vector is the position and velocity, and the action is 
 
 ## Action Space
 
-| Action               | type              |   min.               |   max               |  Desc                         |
-|:---------------------|:------------------|:---------------------|:--------------------|:------------------------------|
-| power_x(drone)       | Box(1, float32)   |  -MAX_POWER(drone)   |  MAX_POWER(drone)   |  Acceleration in x axis       |
-| power_y(drone)       | Box(1, float32)   |  -MAX_POWER(drone)   |  MAX_POWER(drone)   |     Acceleration in y axis    |
-| harvest(drone)       | Discrete(2)       |     0                |   1                 |  Harvest if in mineral area   |
+| Action               | type              |  Desc                         |
+|:---------------------|:------------------|:------------------------------|
+| power_x(?drone)      | Box(1, float32)   |  Acceleration in x axis       |
+| power_y(?drone)      | Box(1, float32)   |     Acceleration in y axis    |
+| harvest(?drone)      | Discrete(2)       |  Harvest if in mineral area   |
 
 ## State Space
 
-| State                | type              |   min.               |   max               |  Desc                         |
-|:---------------------|:------------------|:---------------------|:--------------------|:------------------------------|
-| pos_x(drone)         | Box(1, float32)   |  -np.inf             |  np.inf             |  Position in x axis           |
-| vel_x(drone)         | Box(1, float32)   |  -np.inf             |  np.inf             |  Velocity in x axis           |
-| pos_y(drone)         | Box(1, float32)   |  -np.inf             |  np.inf             |  Position in y axis           |
-| vel_y(drone)         | Box(1, float32)   |  -np.inf             |  np.inf             |  Velocity in y axis           |
+| State                | type              |  Desc                         |
+|:---------------------|:------------------|:------------------------------|
+| pos_x(drone)         | Box(1, float32)   | Position in x axis            |
+| vel_x(drone)         | Box(1, float32)   |  Velocity in x axis           |
+| pos_y(drone)         | Box(1, float32)   |  Position in y axis           |
+| vel_y(drone)         | Box(1, float32)   |  Velocity in y axis           |
 
 ## Rewards
+
+The reward function is defined as 
+```math
+r_t = power_x^2 + power_y^2
+```
 
 ## References
 
