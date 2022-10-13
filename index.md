@@ -92,7 +92,7 @@ More information coming soon!
 - [Ayal Taitler](https://sites.google.com/view/ataitler/home) (University of Toronto, CA)
 - [Scott Sanner](https://www.mie.utoronto.ca/faculty_staff/sanner/) (University of Toronto, CA)
 
-## Contributers
+## Contributors
 - [Michael Gimelfarb](https://mike-gimelfarb.github.io/) (University of Toronto, CA)
 - [Sriram Gopalakrishnan](https://marirsg2.github.io/Sriram_Unravel/) (Arizona State University/J.P. Morgan, USA)
 - [Martin Mladenov](https://ataitler.github.io/IPPC2023/) (Google, BR)
