@@ -40,6 +40,8 @@ More information about the infrastructure, how to use it and how to add user def
 
 ## Domains
 
+There are four domains at the time of the competition call, but more domains will be added, and we strongly encourage the community to create and contribute used defined domains in you field of expertise, or any problem you think the community should try to solve. The highest quality community contributed domains will be selected to be part of the competition's domains. We are aware that participants that submit a domain that is used have some advantage with respect to performance on that domain. We view this as a good incentive for teams to submit high quality proposals.
+
 **Multi-tank reservoir control**
 
 The reservoir domain represents a network of water tanks interconnected in a DAG structure.
