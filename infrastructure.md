@@ -72,6 +72,14 @@ myEnv.close()
 The state and action spaces of pyRDDLGym are standard `gym.spaces`, and inquireable througth the standard API: `env.state_space` and `env.action_space`.
 State/action spaces are of type `gym.spaces.Dict`, where each key-value pair where the key name is the state/action and the value is the state/action current value or action to apply.
 
+Thus, RDDL types are converted to `gym.spaces` with the appropriate bounds as specified in the RDDL `action-preconditions` and `state-invariants` fields.
+The conversion is as following:
+- real -> Box with bounds as specified in `action-preconditions`, or with `np.inf` and symetric bounds.
+- int -> Discrete with bounds as specified in `action-preconditions`, or with `np.inf` and symetric bounds.
+- bool -> Discrete(2)
+
+note: enum types are not supported by pyRDDLGym at this stage.
+
 ### Domains
 
 #### Custom user defined domains
