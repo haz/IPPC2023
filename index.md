@@ -56,6 +56,10 @@ There are four domains at the time of the competition call, but more domains wil
         <img src="images/Rover_image.gif" height="190" width="190" />
         <p style="text-align:center;">Power Unit Commitment</p>
     </div>
+    <div style="float:left;margin-right:5px;">
+        <img src="images/Rover_image.gif" height="190" width="190" />
+        <p style="text-align:center;">Power Unit Commitment</p>
+    </div>
 </div>
 
 
