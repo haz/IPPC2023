@@ -1,11 +1,10 @@
 <p style="font-size:25px;text-align:left"><b>Mars Rover Science Mission Navigation</b></p>
 
-
+| Import folder     | Mars_rover  |
 |:------------------|:------------|
 | Action space      | Dict        |
 | State space       | Dict        |
-| Import folder     | Mars_rover  |
-|:------------------|:------------|
+
 
 
 ## Description
@@ -15,7 +14,19 @@ for each agent the state vector is the position and velocity, and the action is 
 
 ## Action Space
 
+| Action               | type              |   min.               |   max               |  Desc                         |
+|:---------------------|:------------------|:---------------------|:--------------------|:------------------------------|
+| power_x(drone)       | Box(1, float32)   |  -MAX_POWER(drone)   |  MAX_POWER(drone)   |  Acceleration in x axis       |
+| power_y(drone)       | Box(1, float32)   |  -MAX_POWER(drone)   |  MAX_POWER(drone)   |     Acceleration in y axis    |
+| harvest(drone)       | Discrete(2)       |     0                |   1                 |  Harvest if in mineral area   |
+
 ## Observation Space
+
+
+| Import folder     | Mars_rover  |
+|:------------------|:------------|
+| Action space      | Dict        |
+| State space       | Dict        |
 
 ## Rewards
 
