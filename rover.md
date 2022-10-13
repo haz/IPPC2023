@@ -16,9 +16,9 @@ for each agent the state vector is the position and velocity, and the action is 
 
 | Action               | type              |  Desc                         |
 |:---------------------|:------------------|:------------------------------|
-| power_x(?drone)      | Box(1, float32)   |  Acceleration in x axis       |
-| power_y(?drone)      | Box(1, float32)   |     Acceleration in y axis    |
-| harvest(?drone)      | Discrete(2)       |  Harvest if in mineral area   |
+| power_x(drone)      | Box(1, float32)   |  Propelling force in x axis       |
+| power_y(drone)      | Box(1, float32)   |     Propelling force in y axis    |
+| harvest(drone)      | Discrete(2)       |  Harvest if in mineral area   |
 
 ## State Space
 
@@ -32,9 +32,15 @@ for each agent the state vector is the position and velocity, and the action is 
 ## Rewards
 
 The reward function is defined as 
-```math
-r_t = power_x^2 + power_y^2
-```
+
+$$r_t = \sum_{d \in drones} -power_x(d)^2 - power_y(d)^2 - harvestaction(d) + harvest(d,m) $$ 
+
+where, 
+- $power_x(d)$ - is the current force in the x axis of drone *d*.
+- $power_y(d)$ - is the current force in the y axis of drone *d*.
+- $harvestaction(d)$ - is the cost of harvesting.
+- $harvest(d)$ - is reward for succesfully harvesting mineral *m* by drone *d*.
+
 
 ## References
 
