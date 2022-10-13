@@ -82,6 +82,14 @@ There is no need in pyRDDLGym to specify the values of all the existing action i
 
 Note: enum types are not supported by pyRDDLGym at this stage.
 
+### Visualization
+
+pyRDDLGym visualization is just like regular Gym. Users can visualize the current state of the simulation by calling `env.render()`. The standard visualizer that comes out of the box with every pyRDDLGym domain is the TextViz. TextViz just render an image with textual description of the states and their current values.
+
+Replacing the built is TextViz is simple as calling the environment method `env.set_visualizer(viz)` with `viz` as the desired visualization object.
+
+In order to build custom visualiztions (for new user defined domains), one just need to inherit the class `Visualizer.StateViz.StateViz()` and return in the `visualizer.render()` method a PIL image for the gym to render to the screen.
+
 ### Custom user defined domains
 
 Writing a new user defined domains is as easy as writing a few lines of text in a mathematical fashion!
