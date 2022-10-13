@@ -47,11 +47,11 @@ There are four domains at the time of the competition call, but more domains wil
         <p style="text-align:center;">This is image 1</p>
     </div>
     <div style="float:left;margin-right:5px;">
-        <img class="middle-img" src="/images/Rover_image" height="200" width="200" />
+        <img class="middle-img" src="/images/Rover_image.gif" height="200" width="200" />
         <p style="text-align:center;">This is image 2</p>
     </div>
     <div style="float:left;margin-right:5px;">
-        <img src="/images/Rover_image" height="200" width="200" />
+        <img src="/images/Rover_image.gif" height="200" width="200" />
         <p style="text-align:center;">This is image 3</p>
     </div>
 </div>
