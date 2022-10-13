@@ -68,6 +68,7 @@ There are four domains at the time of the competition call, but more domains wil
     </div>
 </div>
 
+<br>
 <!--
 **Multi-tank reservoir control**
 
