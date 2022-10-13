@@ -69,5 +69,10 @@ myEnv.close()
 
 ### Spaces
 
+The state and action spaces of pyRDDLGym are standard `gym.spaces`, and inquireable througth the standard API: `env.state_space` and `env.action_space`.
+State/action spaces are of type `gym.spaces.Dict`, where each key-value pair where the key name is the state/action and the value is the state/action current value or action to apply.
+
 ### Domains
+
+#### Custom user defined domains
 
