@@ -68,51 +68,7 @@ There are four domains at the time of the competition call, but more domains wil
     </div>
 </div>
 
-<!--
-**Multi-tank reservoir control**
-
-The reservoir domain represents a network of water tanks interconnected in a DAG structure.
-  Each tank state is the tank actual water level, which is bounded by zero from bellow and the maximum height of the tank from above. Any excess of water beyond the 
-  top of the tank is spilled out and lost. The inflow to the tank is the inflow from other tanks, and stochastic rainfall. The outflow is the stochastic evaporation of 
-  water, spill of overflowing water and active release of water to the network.
-
-  The incoming water from other tanks is a cumulative sum of all flows to the tank. The outflow is controlled by the release, which defines an absolute amount leaving
-  the tank, which then dispensed equally among the connected tanks. The goal is to keep all the tanks water levels between the minimum and maximum bounds.
-
 <hr>
-
-**Multi-rover Mars science mission**
-
-Multi-agent path finding (MAPF) problem, where agents starts from a some initial position, and should harvast as many minerals as possible. Each mineral is
-locatied randomly at the instatiation of the problem, and has different value. Agent dynamics in each axis is a second order integrator i.e., linear rate of change
-    
-for each agent the state vector is the position and velocity, and the action is the acceleration. The full state vector is the stacking of all agents' states, and 
-similarly for the actions. The reward is the total rewards collected from harvesting the mineral, minus the power consumption usued throughout the process.
-
-<hr>
-
-**Multi-zone HVAC control**
-
-The Heating Ventilation and Air-Conditioning (HVAC) domain deals with a problem of a zone temperature being regulated by a heat source, and a fan.
-An outer fan inserts new air into the system in a constant predefined rate. Zone fans are in-charge of pulling air out of the zones, some of that air is ventilated outside, and some is used for circulations. Heaters are in-charge of heating/cooling air to a desired temperature, which in controlled by means of heat transfer.
-The heaters heat combination of outside and circulated air, for the heaters to heat the combined air to the desired temperature a heat quantity, which is correlated to the needed energy is used. Thus, the controlled variables in the problem are the power or the heat used to heat the air by the heaters, and the fan speeds or Variable Air Volume (VAV) being circulated by the zone fans. The states of the problem are the zones' temperatures, and the output air temperatures of the heaters.
-
-The goal is to minimize the amount of energy used to operate the system - heating and venting, and to minimize the discomfort levels in the zones, defined as being outside of a parameterized comfort range.
-
-<hr>
-
-**Power Unit Commitment**
-
-A number of power producers cooperate to meet daily demand that fluctuates according to the maximum temperature on a given day. 
-A cost is incurred for every unit of power produced and income is received for every unit consumed by the demand.  
-There is a large penalty for failing to meet demand on a given day and there are per-power plant penalties for deviating from the previous day's production at each plant -- some plants must pay higher operating costs for changes in production.
-Power generation is in integer units, consumption is real, and time steps are assumed to span 24 hours.
-
-<hr>
-
--->
-
-<br>
 
 ## Registration
 Coming soon!
