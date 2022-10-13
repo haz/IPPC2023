@@ -68,7 +68,7 @@ There are four domains at the time of the competition call, but more domains wil
     </div>
 </div>
 
-<hr>
+<br clear="left">
 
 ## Registration
 Coming soon!
