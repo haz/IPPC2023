@@ -43,8 +43,10 @@ There are four domains at the time of the competition call, but more domains wil
 
 <div class="image123">
     <div style="float:left;margin-right:5px;">
+        <a href="/infrastructure.md">
         <img src="/images/Rover_image.gif" height="190" width="190"  />
         <p style="text-align:center;">This is image 1)</p>
+        </a>
     </div>
     <div style="float:left;margin-right:5px;">
         <img class="middle-img" src="images/Rover_image.gif" height="190" width="190" />
