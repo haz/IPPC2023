@@ -43,15 +43,15 @@ There are four domains at the time of the competition call, but more domains wil
 
 <div class="image123">
     <div style="float:left;margin-right:5px;">
-        <img src="/images/Rover_image.gif" height="180" width="180"  />
-        <p style="text-align:center;">This is image 1</p>
+        <img src="/images/Rover_image.gif" height="190" width="190"  />
+        <p style="text-align:center;">This is image 1)</p>
     </div>
     <div style="float:left;margin-right:5px;">
-        <img class="middle-img" src="/images/Rover_image.gif" height="180" width="180" />
+        <img class="middle-img" src="images/Rover_image.gif" height="190" width="190" />
         <p style="text-align:center;">This is image 2</p>
     </div>
     <div style="float:left;margin-right:5px;">
-        <img src="/images/Rover_image.gif" height="180" width="180" />
+        <img src="/images/Rover_image.gif" height="190" width="190" />
         <p style="text-align:center;">This is image 3</p>
     </div>
 </div>
