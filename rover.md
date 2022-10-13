@@ -20,13 +20,14 @@ for each agent the state vector is the position and velocity, and the action is 
 | power_y(drone)       | Box(1, float32)   |  -MAX_POWER(drone)   |  MAX_POWER(drone)   |     Acceleration in y axis    |
 | harvest(drone)       | Discrete(2)       |     0                |   1                 |  Harvest if in mineral area   |
 
-## Observation Space
+## State Space
 
-
-| Import folder     | Mars_rover  |
-|:------------------|:------------|
-| Action space      | Dict        |
-| State space       | Dict        |
+| State                | type              |   min.               |   max               |  Desc                         |
+|:---------------------|:------------------|:---------------------|:--------------------|:------------------------------|
+| pos_x(drone)         | Box(1, float32)   |  -np.inf             |  np.inf             |  Position in x axis           |
+| vel_x(drone)         | Box(1, float32)   |  -np.inf             |  np.inf             |  Velocity in x axis           |
+| pos_y(drone)         | Box(1, float32)   |  -np.inf             |  np.inf             |  Position in y axis           |
+| vel_y(drone)         | Box(1, float32)   |  -np.inf             |  np.inf             |  Velocity in y axis           |
 
 ## Rewards
 
