@@ -6,7 +6,6 @@ The International Probabilistic Planning Competition is organized in the context
 Since 2004, probabilistic tracks have been part of the IPC under different names (as the International Probabilistic Planning competition or as part of the uncertainty tracks). After 2004, 2006, 2008, 2011, 2014, and 2018, the 7th IPPC will be held in 2023 and conclude together with ICAPS, in June 2023, in 
 Prague (Czech Republic). This time it is organized by Ayal Taitler and Scott Sanner.
 
-[Infrastructure](/infrastructure.md)
 
 ## Calls
 Coming soon!
@@ -25,10 +24,6 @@ Coming soon!
 | Contest run                                   | April, 2023      |
 | Results announced                             | June, 2023       |
 
-
-
-## Tracks
-Coming soon!
 
 ## Registration
 Coming soon!
@@ -86,11 +81,21 @@ Power generation is in integer units, consumption is real, and time steps are as
 
 <hr>
 
+## Registration
+Coming soon!
+
+
 More information coming soon!
 
 
 ## Organizers
 - [Ayal Taitler](https://sites.google.com/view/ataitler/home) (University of Toronto)
 - [Scott Sanner](https://www.mie.utoronto.ca/faculty_staff/sanner/) (University of Toronto)
+
+## Contributers
+- [Michael Gimelfarb](University of Toronto)
+- [Sriram Gopalakrishnan](Arizona State University/J.P. Morgan)
+- [Martin Mladenov](Google, BR)
+- [Jack Liu](University of Toronto)
 
 Contact us: [ippc2023-rddl@googlegroups.com](ippc2023-rddl@googlegroups.com)
