@@ -93,9 +93,9 @@ More information coming soon!
 - [Scott Sanner](https://www.mie.utoronto.ca/faculty_staff/sanner/) (University of Toronto, CA)
 
 ## Contributers
-- [Michael Gimelfarb](University of Toronto, CA)
-- [Sriram Gopalakrishnan](Arizona State University/J.P. Morgan, USA)
-- [Martin Mladenov](Google, BR)
-- [Jack Liu](University of Toronto, CA)
+- [Michael Gimelfarb](https://mike-gimelfarb.github.io/) (University of Toronto, CA)
+- [Sriram Gopalakrishnan](https://marirsg2.github.io/Sriram_Unravel/) (Arizona State University/J.P. Morgan, USA)
+- [Martin Mladenov]()(Google, BR)
+- [Jack Liu]()(University of Toronto, CA)
 
 Contact us: [ippc2023-rddl@googlegroups.com](ippc2023-rddl@googlegroups.com)
