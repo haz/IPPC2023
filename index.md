@@ -70,6 +70,9 @@ There are four domains at the time of the competition call, but more domains wil
 
 <br clear="left">
 
+## Evaluation
+Coming soon!
+
 ## Registration
 Coming soon!
 
