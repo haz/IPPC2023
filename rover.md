@@ -52,7 +52,6 @@ where,
 - $power_y(d)$ - is the current force in the y axis of drone *d*.
 - $harvest\_action(d)$ - is the cost of harvesting.
 - $harvest(d)$ - is reward for succesfully harvesting mineral *m* by drone *d*.
-- $y = ax+b$
 
 
 ## References
