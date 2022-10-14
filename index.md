@@ -56,7 +56,7 @@ There are four domains at the time of the competition call, but more domains wil
     </div>
     <div style="float:left;margin-right:5px;">
         <a href="powergen.html">
-        <img src="images/Rover_image.gif" height="190" width="190" />
+        <img src="images/powergen_static.png" height="190" width="190" />
         <p style="text-align:center;">Power Unit Commitment</p>
         </a>
     </div>
