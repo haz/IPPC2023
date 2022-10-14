@@ -1,7 +1,7 @@
 <p style="font-size:25px;text-align:left"><b>Mars Rover Science Mission Navigation</b></p>
 
 <a href="images/Rover_image.gif">
-        <p style="text-align:center;">
+        <p style="text-align:center">
                 <img src="images/Rover_image.gif" height="190" width="190" />
         </p>
 </a>
