@@ -24,8 +24,6 @@ Coming soon!
 | Results announced                             | June, 2023       |
 
 
-## Registration
-Coming soon!
 
 ## Setup
 
