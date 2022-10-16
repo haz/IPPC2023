@@ -48,5 +48,6 @@ cost of supply per plant, demand income, demand exceeds supply penalty, steady-s
 
 - http://en.wikipedia.org/wiki/Power_system_simulation 
 
-
+<hr>
+[Back to main page](index.md)
 
