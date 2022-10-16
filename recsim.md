@@ -25,7 +25,7 @@ There is a single type of action in this domain, a boolean decision, whether to 
 
 | Action               | type             |  Desc                          |
 |:---------------------|:-----------------|:-------------------------------|
-|  recommend(consumer, item)      | Discrete(2)  |  recommend one item to every consumer |
+|  recommend(consumer, item)      | Discrete(2)  |  recommend an item to a consumer |
 
 
 ## State Space
