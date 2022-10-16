@@ -95,4 +95,5 @@ In order to build custom visualiztions (for new user defined domains), one just 
 Writing a new user defined domains is as easy as writing a few lines of text in a mathematical fashion!
 All is required is to specify the lifted constants, variables (all are refered as fluents in RDDL), behavior/dynamic of the problem and generating an instance with the actual objects and initial state in RDDL - and pyRDDLGym will do the rest.
 
+<hr>
 [Back to main page](index.md)
