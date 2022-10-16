@@ -9,7 +9,7 @@
 
 |       |      |
 |:------------------|:------------|
-| Import folder     | Mars_rover  |
+| Import folder     | Power_gen  |
 | Action space      | Dict        |
 | State space       | Dict        |
 
