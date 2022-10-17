@@ -40,6 +40,7 @@ pyRDDLSim implements a subset of the capabilities of the full RDDL language, the
 -  leveling is available but not required anymore, pyRDDLSim can reason the dependencies and thus the level arguments of derived-fluents and interm-fluents can be omitted.
 -  state-action-constrains is deprecated in favor of state-invariants and action-preconditions
 -  action-preconditions are not checked during simulations and should be enforced by the cpfs directly. Only actions-preconditions of the form `action <= BOUND` and `action >= BOUND` are parsed for the benefit of gym spaces definitions.
+-  Observations, as the 2023 competition is fully observable, observations are not supported at this stage, and the state is accessed directly.
 
 
 ## Getting started
