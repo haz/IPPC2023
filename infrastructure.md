@@ -5,7 +5,11 @@ RDDL is intended to compactly support the representation of a wide range of rela
 
 
 # Getting started with RDDL
-[RDDL language guide](http://users.cecs.anu.edu.au/~ssanner/IPPC_2011/RDDL.pdf)
+The easiest way to start off with RDDL is with the following tutorial:
+- [RDDL tutorial](https://sites.google.com/site/rddltutorial/)
+
+The RDDL language guide which documents all the language componants is also available here:
+- [RDDL language guide](http://users.cecs.anu.edu.au/~ssanner/IPPC_2011/RDDL.pdf)
 
 Please cite as
 
@@ -17,7 +21,11 @@ Please cite as
       year = 2010}
 ```
 
-[RDDL tutorial](https://sites.google.com/site/rddltutorial/)
+pyRDDLSim (see next section) implements a subset of the capabilities of the full RDDL language, the things not included with the current distribution of pyRDDLSim is the following:
+-  No enums.
+-  leveling is available but not required anymore, pyRDDLSim can reason the dependencies and thus the level arguments of derived-fluents and interm-fluents can be omitted.
+-  state-action-constrains is deprecated in favor of state-invariants and action-preconditions
+-  action-preconditions are not checked during simulations and should be enforced by the cpfs directly. Only actions-preconditions of the form `action <= BOUND` and `action >= BOUND` are parsed for the benefit of gym spaces definitions.
 
 # pyRDDLSim
 ## Getting started
@@ -81,6 +89,12 @@ The conversion is as following:
 There is no need in pyRDDLGym to specify the values of all the existing action in the RDDL domain description, only thus the agent wishes to assign non-default values, the infrastructure will construct the full action vector as necessery with the default action values according to the RDDL description.
 
 Note: enum types are not supported by pyRDDLGym at this stage.
+
+### Constants
+RDDL allows for the constants of the problem instead of being hardcoded, to be specified and in the non-fluent block of the instance. Meaning every instance can have different constants, e.g., different bounds on action, different static object location, etc.
+
+While these constants are not available through the state of the problem, it is possible to access them through gym (or directly through the RDDL description) with a dedicated API: `env.non_fluents`. The non_fluents property returns a python dictionary where the keys are the grounded non-fluents and the values are the appropriate values. 
+
 
 ### Visualization
 
