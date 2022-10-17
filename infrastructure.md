@@ -5,10 +5,15 @@ RDDL is intended to compactly support the representation of a wide range of rela
 
 
 # Getting started with RDDL
-The easiest way to start off with RDDL is with the following tutorial:
-- [RDDL tutorial](https://sites.google.com/site/rddltutorial/)
 
-The RDDL language guide which documents all the language componants is also available here:
+RDDL is out there since 2010, with a JAVA simulator and excellent tutorial, explaining step by step with the help of a simple and illustrative example the power of RDDL and how to describe an MDP as an RDDL domain and instance. 
+
+- [RDDL tutorial](https://sites.google.com/site/rddltutorial/)
+- [JAVA RDDLSim](https://github.com/ssanner/rddlsim)
+
+It is highly recommanded to read through the tutorial even without cloning the JAVA simulator to get the hanf of it. Note that in order to use pyRDDLGym (see next section) it is not required to fully understand RDDL, pyRDDLGym is fully gym compatible simulator, and can be treated as such, with the knowledge that the environments are not written in python but in RDDL.
+
+The RDDL language guide which documents all the language components is also available here:
 - [RDDL language guide](http://users.cecs.anu.edu.au/~ssanner/IPPC_2011/RDDL.pdf)
 
 Please cite as
@@ -21,13 +26,22 @@ Please cite as
       year = 2010}
 ```
 
-pyRDDLSim (see next section) implements a subset of the capabilities of the full RDDL language, the things not included with the current distribution of pyRDDLSim is the following:
+# pyRDDLSim
+
+pyRDDLSim is a generic autogeneration simulator from RDDL files to OpenAI Gym environments.
+
+## Paper 
+Coming soon!
+<!-- Please see our paper describing the design decisions and implementation details behind pyRDDLGym. -->
+
+## Status 
+pyRDDLSim implements a subset of the capabilities of the full RDDL language, the things not included with the current distribution of pyRDDLSim is the following:
 -  No enums.
 -  leveling is available but not required anymore, pyRDDLSim can reason the dependencies and thus the level arguments of derived-fluents and interm-fluents can be omitted.
 -  state-action-constrains is deprecated in favor of state-invariants and action-preconditions
 -  action-preconditions are not checked during simulations and should be enforced by the cpfs directly. Only actions-preconditions of the form `action <= BOUND` and `action >= BOUND` are parsed for the benefit of gym spaces definitions.
 
-# pyRDDLSim
+
 ## Getting started
 The pyRDDLGym infrastructure is available for cloning: `https://github.com/ataitler/pyRDDLGym.git`
 
