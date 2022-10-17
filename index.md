@@ -88,4 +88,4 @@ More information coming soon!
 - [Martin Mladenov](https://ataitler.github.io/IPPC2023/) (Google, BR)
 - [Jack Liu](https://ataitler.github.io/IPPC2023/) (University of Toronto, CA)
 
-Contact us: [ippc2023-rddl@googlegroups.com](ippc2023-rddl@googlegroups.com)
+Contact us: [ippc2023-rddl@googlegroups.com](https://groups.google.com/g/ippc2023-rddl)
