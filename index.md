@@ -14,14 +14,13 @@ Coming soon!
 
 | Event                                         | Date             |
 |:----------------------------------------------|:-----------------|
-| Expression of interest                        | June, 2022       |
-| Infrastructure release with sample domains    | July, 2022       |
-| Call for domains and praticipants             | August, 2022     |
-| Final domains announcement                    | November, 2022   |
-| Competitors registration                      | December, 2022   |
-| Planner abstract dubmission                   | March, 2023      |
-| Contest run                                   | April, 2023      |
-| Results announced                             | June, 2023       |
+| Infrastructure release with sample domains    | October, 2022    |
+| Call for domains and praticipants             | October, 2022    |
+| Final domains announcement                    | December, 2022   |
+| Competitors registration                      | January, 2022    |
+| Planner abstract dubmission                   | May, 2023        |
+| Contest run                                   | June, 2023       |
+| Results announced                             | July, 2023       |
 
 
 
@@ -37,7 +36,7 @@ More information about the infrastructure, how to use it and how to add user def
 
 ## Domains
 
-There are four domains at the time of the competition call, but more domains will be added, and we strongly encourage the community to create and contribute used defined domains in you field of expertise, or any problem you think the community should try to solve. The highest quality community contributed domains will be selected to be part of the competition's domains. We are aware that participants that submit a domain that is used have some advantage with respect to performance on that domain. We view this as a good incentive for teams to submit high quality proposals.
+There are several original domains at the time of the competition call, but more domains will be added, and we strongly encourage the community to create and contribute used defined domains in you field of expertise, or any problem you think the community should try to solve. The highest quality community contributed domains will be selected to be part of the competition's domains. We are aware that participants that submit a domain that is used have some advantage with respect to performance on that domain. We view this as a good incentive for teams to submit high quality proposals.
 
 <div class="image123" style="center">
     <div style="float:left;margin-right:5px;">
@@ -49,7 +48,7 @@ There are four domains at the time of the competition call, but more domains wil
     <div style="float:left;margin-right:5px;">
         <a href="recsim.html">
         <img class="middle-img" src="images/Rover_image.gif" height="190" width="190" />
-        <p style="text-align:center;">Recommendation systems</p>
+        <p style="text-align:center;">Recommendation Systems</p>
         </a>
     </div>
     <div style="float:left;margin-right:5px;">
@@ -62,6 +61,23 @@ There are four domains at the time of the competition call, but more domains wil
         <a href="uav.html">
         <img src="images/drones.gif" height="190" width="190" />
         <p style="text-align:center;">UAV</p>
+        </a>
+    </div>
+</div>
+
+In addition to the original domain, we have recreated some of the classical control domains in RDDL. Illustrating how easy it is to generate domains in pyRDDLSim:
+
+<div class="image123" style="center">
+    <div style="float:left;margin-right:5px;">
+        <a href="cartpole.html">
+        <img src="images/cart_pole.gif" height="190" width="190"  />
+        <p style="text-align:center;">Cart Pole</p>
+        </a>
+    </div>
+    <div style="float:left;margin-right:5px;">
+        <a href="mountaincar.html">
+        <img class="middle-img" src="images/mountain_car.gif" height="190" width="190" />
+        <p style="text-align:center;">Mountain Car</p>
         </a>
     </div>
 </div>
