@@ -23,8 +23,8 @@ The pendulum is placed upright on the cart and the goal is to balance the pole b
 
 | Constant     | Type             |  Desc                                               |
 |:-------------|:-----------------|:----------------------------------------------------|
-| GRAVITY      | float32          |  force of gravity acting down                       |
-| FORCE_MAG    | float32          |  force applied to the side of the cart              |
+| GRAVITY      | float32          |  Force of gravity acting down                       |
+| FORCE_MAG    | float32          |  Force applied to the side of the cart              |
 | CART_MASS    | float32          |  Mass of the cart                                   |
 | POLE_MASS    | float32          |  Mass of the pole                                   |
 | POLE_LEN     | float32          |  Half of the pole length                            |
@@ -36,7 +36,7 @@ All of these can be read from the RDDLEnv interface and from the RDDL files.
 
 ## Action Space
 
-The actions are the forces operating on the drones by their motors in the *x* and *y* axes (decoupled model), and a harvest action that can be applied by a drone if it is in a mineral harvest region, the result of the harvest action if applicable is that the mineral is harvested, and cannot be harvested again.
+There is a single action taking {0,1} values, indicating if the cart should be pushed to the left or to the right.
 
 | Action               | Type             |  Desc                                                  |
 |:---------------------|:-----------------|:-------------------------------------------------------|
@@ -45,6 +45,8 @@ The actions are the forces operating on the drones by their motors in the *x* an
 If force_side is 0 then the cart is pushed to the left with FORCE_MAG force \
 If force_side is 1 then the cart is pushed to the right with FORCE_MAG force 
 
+**Note**: The velocity that is reduced or increased by the applied force is not fixed and it depends on the angle the pole is pointing. The center of gravity of the pole varies the amount of energy needed to move the cart underneath it
+
 - FORCE_MAG is available from the RDDLEnv interface and in the RDDL domain and instance.
 
 ## State Space
@@ -52,25 +54,17 @@ If force_side is 1 then the cart is pushed to the right with FORCE_MAG force
 The state space represents the positions and velocities of all the drones in the problem, as well as the state of all the minearls in the domain.
 The location and harvesting regions of the minearls are not part of the state, but are available through the non fluents in the problem.
 
-| State                      | Type              |  Desc                                   |
-|:---------------------------|:------------------|:----------------------------------------|
-| pos_x(drone)               | Box(1, -np.inf, np.inf, float32)   | Position in x axis                      |
-| vel_x(drone)               | Box(1, -np.inf, np.inf, float32)   |  Velocity in x axis                     |
-| pos_y(drone)               | Box(1, -np.inf, np.inf, float32)   |  Position in y axis                     |
-| vel_y(drone)               | Box(1, -np.inf, np.inf, float32)   |  Velocity in y axis                     |
-| mineral_harvested(mineral) | Discrete(2)       |  True if the minearl was not harvested  |
+| State             | Type                                   |  Desc                         |
+|:------------------|:---------------------------------------|:------------------------------|
+| pos               | Box(1, -POS_LIMIT, POS_LIMIT, float32) |  Cart position                |
+| ang_pos           | Box(1, -NG_LIMIT, NG_LIMIT, float32)   |  Pole angle                   |
+| vel               | Box(1, -np.inf, np.inf, float32)       |  Cart velocity                |
+| ang_vel           | Box(1, -np.inf, np.inf, float32)       |  Pole angular velocity        |
+
+**Note**: The bounds above denote the possible values for the state space of each element. upon violation of one of these values the episode will continuo without change (the state will be frozen, and reward zero), for the remaining of th episode.
 
 ## Rewards
-
-The reward function is defined as 
-
-$$r_t = \sum_{d \in drones} -power_x(d)^2 - power_y(d)^2 - harvest\_action(d) + harvest(d,m) $$ 
-
-where, 
-- $power_x(d)$ - is the current force in the x axis of drone *d*.
-- $power_y(d)$ - is the current force in the y axis of drone *d*.
-- $harvest\_action(d)$ - is the cost of harvesting.
-- $harvest(d)$ - is reward for succesfully harvesting mineral *m* by drone *d*.
+Since the goal is to keep the pole upright for as long as possible, a reward of +1 for every step taken, including the termination step, is allotted.
 
 
 ## References
