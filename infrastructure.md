@@ -168,7 +168,8 @@ Replacing the built is TextViz is simple as calling the environment method `env.
 from Env import RDDLEnv as RDDLEnv
 from Visualizer.MountainCarViz import MountainCarVisualizer
 
-myEnv = RDDLEnv.RDDLEnv(domain='MountainCar\domain.rddl', instance='MountainCar\instance0.rddl')
+myEnv = RDDLEnv.RDDLEnv(domain='MountainCar\domain.rddl', 
+                        instance='MountainCar\instance0.rddl')
 myEnv.set_visualizer(MountainCarVisualizer)
 ```
 In order to build custom visualiztions (for new user defined domains), one just need to inherit the class `Visualizer.StateViz.StateViz()` and return in the `visualizer.render()` method a PIL image for the gym to render to the screen.
