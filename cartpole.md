@@ -64,7 +64,8 @@ The location and harvesting regions of the minearls are not part of the state, b
 **Note**: The bounds above denote the possible values for the state space of each element. upon violation of one of these values the episode will continuo without change (the state will be frozen, and reward zero), for the remaining of th episode.
 
 - POS_LIMIT and ANG_LIMIT are available from the RDDLEnv interface and in the RDDL domain and instance.
-- 
+
+
 ## Rewards
 Since the goal is to keep the pole upright for as long as possible, a reward of +1 for every step taken, including the termination step, is allotted.
 
