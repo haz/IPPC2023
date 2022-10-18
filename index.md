@@ -31,7 +31,7 @@ This year's competition will be using the generic pyRDDLGym - an autogeneration 
 <img src="images/RDDLGym.jpg" alt="RDDLGym diagram">
 
 More information about the infrastructure, how to use it and how to add user defined domains can be found in this short
-[Infrastructure guide](/infrastructure.md).
+**[Infrastructure guide](/infrastructure.md)**.
 
 
 ## Domains
