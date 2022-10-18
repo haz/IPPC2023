@@ -41,7 +41,7 @@ There are four domains at the time of the competition call, but more domains wil
 
 <div class="image123" style="center">
     <div style="float:left;margin-right:5px;">
-        <a href="domains/rover.html">
+        <a href="rover.html">
         <img src="images/Rover_image.gif" height="190" width="190"  />
         <p style="text-align:center;">Mars Rovers Science Mission</p>
         </a>
