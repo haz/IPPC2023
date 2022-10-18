@@ -8,7 +8,7 @@ Since 2004, probabilistic tracks have been part of the IPC under different names
 
 ## Calls
 Please forward the following calls to all interested parties:
-[Call for Participation and Domains](/call_email.md)
+- [Call for Participation and Domains](/call_email.md)
 
 <div style="width:100%;text-align:center;">
   <a href="images/IPPC2023_Graphical_Call.jpg">
