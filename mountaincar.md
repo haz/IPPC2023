@@ -1,4 +1,4 @@
-<p style="font-size:25px;text-align:left"><b>Cart Pole Control</b></p>
+<p style="font-size:25px;text-align:left"><b>Mountain car Control</b></p>
 
 <div style="width:100%;text-align:center;">
   <a href="images/mountain_car.gif">
@@ -67,3 +67,6 @@ The goal is to reach the flag placed on top of the right hill as quickly as poss
 ## References
 - Moore, A. W. (1990). Efficient memory-based learning for robot control.
 
+
+<hr>
+[Back to main page](index.md)
