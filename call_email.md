@@ -4,7 +4,8 @@ Probabilistic and Reinforcement Learning Track
 
 Call for Participations and domains
 
-https://ataitler.github.io/IPPC2023/ \
+https://ataitler.github.io/IPPC2023/ 
+
 ippc20232023-rddl@googlegroups.com 
 
 ========================================================================
