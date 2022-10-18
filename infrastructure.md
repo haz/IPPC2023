@@ -101,10 +101,30 @@ types {
 };
 
 pvariables{
+      DT            : { non-fluent, real, defautl=0.1 };
       position(car) : { state-fluent, real, default=0.0 };
       velocity(car) : { action-fluent, real, default=0.0 };
 };
+
+cpfs {
+      position'(car) = position(car) + DT * velocity(car)
+};
 ```
+This is a behavior description, this type of code can be found in the domain block of the RDDL code. In the code above no specific car is described. that will be done in the instance and non-fluents blocks. first we should define the objects in the problem:
+```cpp
+objects {
+      car : {car1, car2};
+};
+```
+Now that we have specifi car objects, we can define their intial state:
+```python
+init_state {
+      position(car1) = -1.0;
+      position(car2) = 1.0;
+};
+```
+
+
 
 ### Spaces
 
