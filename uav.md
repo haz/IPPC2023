@@ -26,6 +26,35 @@ This domain has three version!
 2. Fully discrete, angles and velocity/acceleration are bounded integers.
 3. Hybrid, i.e., Mix Discrete-continuous, angles are bounded integers and the velocity/acceleration is a real number.
 
+## Constants (non-fluents)
+
+| Constant                 | Type             |  Desc                                               |
+|:-------------------------|:-----------------|:----------------------------------------------------|
+| CONTROLLABLE(aircraft)   | float32          |  Whether an aircraft is contrallable                |
+| GRAVITY                  | float32          |  Earth gravity acceleration coefficient             |
+| MIN_X                    | float32          |  Min X of the space                                 |
+| MAX_X                    | float32          |  Max X of the space                                 |
+| MIN_Y                    | float32          |  Min Y of the space                                 |
+| MAX_Y                    | float32          |  Max X of the space                                 |
+| MIN_Z                    | float32          |  Min Z of the space                                 |
+| MAX_Z                    | float32          |  Max X of the space                                 |
+| SCALE_FACTOR             | float32          |  Time scale factor for dynamic equations (Delta T)  |
+| RANDOM_WALK_COEFF        | float32          |  RAndom walk var of the non contrallable aircrafts  |
+| VEL_REG                  | float32          |  Velocity regularization (prevent division by zero  |
+| MIN_ACC(aircraft)        | float32          |  Minmum acceleration value                          |
+| MAX_ACC(aircraft)        | float32          |  Maximum acceleration value                         |
+| MIN_PHI(aircraft)        | float32          |  Minimum phi change in the single time step         |
+| MAX_PHI(aircraft)        | float32          |  Maximum phi change in the single time step         |
+| MIN_THETA(aircraft)      | float32          |  Minimum theta change in the single time step       |
+| MAX_THETA(aircraft)      | float32          |  Maximum thera change in the single time step       |
+| GOAL_X(aircraft)         | float32          |  Aircraft's goal X position                         |
+| GOAL_Y(aircraft)         | float32          |  Aircraft's goal Y position                         |
+| GOAL_Z(aircraft)         | float32          |  Aircraft's goal Y position                         |
+
+
+All of these can be read from the RDDLEnv interface and from the RDDL files.
+
+
 ## Action Space
 
 The actions are the acceleration in the direction of the nose, and the small changes to the roll and pitch angles.
@@ -34,26 +63,27 @@ The actions are the acceleration in the direction of the nose, and the small cha
 
 | Action               | type             |  Desc                          |
 |:---------------------|:-----------------|:-------------------------------|
-| set_acc(aircraft)    | Box(1, np.float32)  |  Propelling force to apply to the aircraft |
-| set_phi(aircraft)    | Box(1, np.float32)  |  Roll angle change  |
-| set_theta(aircraft)  | Box(1, np.float32)  |  Pitch angle change  |
+| set_acc(aircraft)    | Box(1, MIN_ACC(aircraft), MAX_ACC(aircraft), np.float32)  |  Propelling force to apply to the aircraft |
+| set_phi(aircraft)    | Box(1, MIN_PHI(aircraft), MAX_PHI(aircraft), np.float32)  |  Roll angle change  |
+| set_theta(aircraft)  | Box(1, MIN_THETA(aircraft), MIN_THETA(aircraft), np.float32)  |  Pitch angle change  |
 
 #### Discrete 
 
 | Action               | type             |  Desc                          |
 |:---------------------|:-----------------|:-------------------------------|
-| set_acc(aircraft)    | Discrete()  |  Propelling force to apply to the aircraft |
-| set_phi(aircraft)    | Discrete()  |  Roll angle change  |
-| set_theta(aircraft)  | Discrete  |  Pitch angle change  |
+| set_acc(aircraft)    | Discrete(MAX_ACC(aircraft)+MIN_ACC(aircraft)+1, start=MIN_ACC(aircraft))  |  Propelling force to apply to the aircraft |
+| set_phi(aircraft)    | Discrete(MAX_PHI(aircraft)+MIN_PHI(aircraft)+1, start=MIN_PHI(aircraft))  |  Roll angle change  |
+| set_theta(aircraft)  | Discrete(MAX_THETA(aircraft)+MIN_THETA(aircraft)+1, start=MIN_THETA(aircraft))  |  Pitch angle change  |
 
 #### Hybrid
 
 | Action               | type             |  Desc                          |
 |:---------------------|:-----------------|:-------------------------------|
-| set_acc(aircraft)    | Box(1, np.float32)  |  Propelling force to apply to the aircraft |
-| set_phi(aircraft)    | Discrete()  |  Roll angle change  |
-| set_theta(aircraft)  | Discrete  |  Pitch angle change  |
+| set_acc(aircraft)    | Box(1, MIN_ACC(aircraft), MAX_ACC(aircraft), np.float32)  |  Propelling force to apply to the aircraft |
+| set_phi(aircraft)    | Discrete(MAX_PHI(aircraft)+MIN_PHI(aircraft)+1, start=MIN_PHI(aircraft))  |  Roll angle change  |
+| set_theta(aircraft)  | Discrete(MAX_THETA(aircraft)+MIN_THETA(aircraft)+1, start=MIN_THETA(aircraft))  |  Pitch angle change  |
 
+- MIN_ACC(aircraft), MAX_ACC(aircraft), MIN_PHI(aircraft), MAX_PHI(aircraft), MIN_THETA(aircraft) and MIN_THETA(aircraft) are available from the RDDLEnv interface and in the RDDL domain and instance.
 
 ## State Space
 
@@ -61,14 +91,15 @@ The state space represents the position and angles of each UAV, and also the vel
 
 | State                      | type              |  Desc                                   |
 |:---------------------------|:------------------|:----------------------------------------|
-| pos_x(aircraft)             |  Box(1, np.float32)  | Position of the UAV in the x axis |
-| pos_y(aircraft)             |  Box(1, np.float32)  | Position of the UAV in the y axis |
-| pos_z(aircraft)             |  Box(1, np.float32)  | Position of the UAV in the z axis |
-| theta(aircraft)             |  Box(1, np.float32)  | The UAV's pitch angle |
-| phi(aircraft)               |  Box(1, np.float32)  | The UAV's roll angle |
-| psi(aircraft)               |  Box(1, np.float32)  | The UAV's yaw angle |
-| vel(aircraft)               |  Box(1, np.float32)  | UAV's velocity in the direction of the nose |
+| pos_x(aircraft)             |  Box(1, MIN_X, MAX_X, np.float32)  | Position of the UAV in the x axis |
+| pos_y(aircraft)             |  Box(1, MIN_Y, MAX_Y, np.float32)  | Position of the UAV in the y axis |
+| pos_z(aircraft)             |  Box(1, MIN_Z, MAX_Z, np.float32)  | Position of the UAV in the z axis |
+| theta(aircraft)             |  Box(1, -inf, inf, np.float32)  | The UAV's pitch angle |
+| phi(aircraft)               |  Box(1, -inf, inf,  np.float32)  | The UAV's roll angle |
+| psi(aircraft)               |  Box(1, -inf, inf,  np.float32)  | The UAV's yaw angle |
+| vel(aircraft)               |  Box(1, -inf, inf,  np.float32)  | UAV's velocity in the direction of the nose |
 
+- MIN_X, MAX_X, MIN_Y, MAX_Y, MIN_Z and MAX_Z are available from the RDDLEnv interface and in the RDDL domain and instance.
 
 ## Rewards
 
