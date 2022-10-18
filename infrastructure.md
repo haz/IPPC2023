@@ -93,9 +93,9 @@ myEnv.close()
 ### Lifted vs Grounded Representations
 
 RDDL is a lifted language, which means it compactly describes variables and processes in a general non-specific way. It is best explained with an example.
-The following block describes a moving car with first order dynamics:
+The following block describes the behavior of an abstract entity car, with first order dynamics:
 
-```python
+```ruby
 types {
       car : object;
 };
