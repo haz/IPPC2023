@@ -69,13 +69,50 @@ There are four domains at the time of the competition call, but more domains wil
 <br clear="left">
 
 ## Evaluation
-Coming soon!
+The exact details of the evaluation process are still in discussions (in order to be able to accomodate planing and learning approaches), but the general lines will follow the evaluation of the past [IPPC 2011](http://users.cecs.anu.edu.au/~ssanner/IPPC_2011/index.html) competition. 
+
+Domains (note numbers might change this year)
+- 8 domains
+- 10 instances per domain
+- 30 trials per instance
+
+Procedure
+- We will use a cloud computing resources, where every team will gain access to an identical computer. The exact configuration will be published enough time before the competition, and an early access will be possible in order to test the code and know what to expect.
+- At competition time
+    - You will receive instructions on how to login to your own personal Linux node.
+    - The location of all RDDL domains / instances.
+    - Your agent will have 24 hours to complete trials for all instances.
+        - Instances will have a suffix "_1" up to "_10" where 1 will be the smallest (usually easiest) and 10 the largest (usually hardest).
+        - You need not compete on all instances or for all trials, in that case the best average score from the random and NOOP policies is assigned (see below).
+- Post-competition evaluation
+    - We will shutdown the server at the 24 hour time limit.
+    - The server maintains a log file for all instances and trials you complete.
+    - If you execute more than 30 trials per instance, we will only use data for the last 30 trials.
+    - Overall planner evaluation criterion for ranking.
+        - For each instance trial, the server records a raw score.
+            - For the final competition (boolean MDP and POMDP tracks), a fixed horizon of 40 will be used for all instances.
+    - We will compute a [0,1] normalized average score per instance from raw score.
+        - Per instance, averaged over all 30 trials, we will determine.
+            - The minimum average score (minS_{instance}) is the max over the average scores from a purely random policy and an always-noop policy.
+            - The maximum average score (maxS_{instance}) is the max over all competitors, a purely random policy, and a pure noop policy.
+            - If a planner does not compete a trial for an instance, minS_{instance} is assigned as the raw score for that missing trial.
+            - We will make available all raw and normalized data as well as minS_{instance} and maxS_{instance} used to compute the normalized score for each instance.
+        - Normalized-score_{planner,instance} = max(0, [(sum_{trials 1..30} raw-score_{planner,instance,trial})/30 - minS_{instance}] / [(maxS_{instance} - minS_{instance})] ).
+        - We use a max here in the unlikely event that a planner does worse than either the noop or random policies to ensure the minimum score is 0... we don't want to penalize a planner that tries and fails vs. a planner that simply skips an instance and gets 0 automatically.
+    - Final agent evaluation criterion
+        - avg-norm-score_{planner} = (sum_{instance 1..80} normalized-score_{planner,instance}) / 80.
+        - Note 1: 80 instances are from 8 domains X 10 instances per domain (instance names uniquely determine the domain).
+        - Note 2: given the normalized score per instance, it is to your advantage to complete easier instances before harder ones.
+    - Min / max score:
+        - The minimum avg-norm-score for any competing planner is 0.
+        - The maximum avg-norm-score for any competing planner is 1.
+        - Agents will be ranked by their avg-norm-score.
+
+
 
 ## Registration
-Coming soon!
+At this point just join the google group (see link at the bottom) and announce your interest to compete in a post that includes your tentative team name, organization, and team members.
 
-
-More information coming soon!
 
 
 ## Organizers
