@@ -101,13 +101,13 @@ types {
 };
 
 pvariables{
-      DT            : { non-fluent, real, defautl=0.1 };
+      DT            : { non-fluent, real, default=0.1 };
       position(car) : { state-fluent, real, default=0.0 };
       velocity(car) : { action-fluent, real, default=0.0 };
 };
 
 cpfs {
-      position'(car) = position(car) + DT * velocity(car)
+      position\'(car) = position(car) + DT * velocity(car)
 };
 ```
 This is a behavior description, this type of code can be found in the domain block of the RDDL code. In the code above no specific car is described. that will be done in the instance and non-fluents blocks. first we should define the objects in the problem:
