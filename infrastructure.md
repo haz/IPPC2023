@@ -90,6 +90,22 @@ for _ in range(myEnv.horizon):
 myEnv.close()
 ```
 
+### Lifted vs Grounded Representations
+
+RDDL is a lifted language, which means it compactly describes variables and processes in a general non-specific way. It is best explained with an example.
+The following block describes a moving car with first order dynamics:
+
+```cpp
+types {
+      car : object;
+};
+
+pvariables{
+      position(car) : { state-fluent, real, default=0.0 };
+      velocity(car) : { action-fluent, real, default=0.0 };
+};
+```
+
 ### Spaces
 
 The state and action spaces of pyRDDLGym are standard `gym.spaces`, and inquireable througth the standard API: `env.state_space` and `env.action_space`.
