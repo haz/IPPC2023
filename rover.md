@@ -22,14 +22,14 @@ for each agent the state vector is the position and velocity, and the action is 
 
 | Constant                 | Type             |  Desc                                               |
 |:-------------------------|:-----------------|:----------------------------------------------------|
-| MAX_POWER(drone)         | float            |  Norm upper bound constraint on the power inputs    |
-| SCALE_FACTOR             | float            |  Time scale factor for dynamic equations (Delta T)  |
-| MINERAL_AREA(mineral)    | float            |  Mineral harvesting radius area                     |
-| MINERAL_VALUE(mineral)   | float            |  Mineral harvest value                              |
-| MINERAL_POS_X(mineral)   | float            |  Mineral X position                                 |
-| MINERAL_POS_XY(mineral)  | float            |  Mineral Y position                                 |
+| MAX_POWER(drone)         | float32          |  Norm upper bound constraint on the power inputs    |
+| SCALE_FACTOR             | float32          |  Time scale factor for dynamic equations (Delta T)  |
+| MINERAL_AREA(mineral)    | float32          |  Mineral harvesting radius area                     |
+| MINERAL_VALUE(mineral)   | float32          |  Mineral harvest value                              |
+| MINERAL_POS_X(mineral)   | float32          |  Mineral X position                                 |
+| MINERAL_POS_XY(mineral)  | float32          |  Mineral Y position                                 |
 
-All of these can be read from the RDDLEnv interface and from the rddl files.
+All of these can be read from the RDDLEnv interface and from the RDDL files.
 
 ## Action Space
 
@@ -41,7 +41,7 @@ The actions are the forces operating on the drones by their motors in the *x* an
 | power_y(drone)      | Box(1, -MAX_POWER(drone), MAX_POWER(drone), float32)   |     Propelling force in y axis |
 | harvest(drone)      | Discrete(2)       |  Harvest if in mineral area    |
 
-- MAX_POWER(drone) is available from the RDDLEnv interface and in the rddl domain and instance.
+- MAX_POWER(drone) is available from the RDDLEnv interface and in the RDDL domain and instance.
 
 ## State Space
 
