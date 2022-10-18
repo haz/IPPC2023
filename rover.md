@@ -50,10 +50,10 @@ The location and harvesting regions of the minearls are not part of the state, b
 
 | State                      | Type              |  Desc                                   |
 |:---------------------------|:------------------|:----------------------------------------|
-| pos_x(drone)               | Box(1, float32)   | Position in x axis                      |
-| vel_x(drone)               | Box(1, float32)   |  Velocity in x axis                     |
-| pos_y(drone)               | Box(1, float32)   |  Position in y axis                     |
-| vel_y(drone)               | Box(1, float32)   |  Velocity in y axis                     |
+| pos_x(drone)               | Box(1, -np.inf, np.inf, float32)   | Position in x axis                      |
+| vel_x(drone)               | Box(1, -np.inf, np.inf, float32)   |  Velocity in x axis                     |
+| pos_y(drone)               | Box(1, -np.inf, np.inf, float32)   |  Position in y axis                     |
+| vel_y(drone)               | Box(1, -np.inf, np.inf, float32)   |  Velocity in y axis                     |
 | mineral_harvested(mineral) | Discrete(2)       |  True if the minearl was not harvested  |
 
 ## Rewards
