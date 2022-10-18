@@ -3,7 +3,7 @@
 
 <div style="width:100%;text-align:center;">
   <a href="images/power_gen.gif">
-    <img src="images/powergen_static.png" height="190" width="190" />
+    <img src="images/power_gen.gif" height="190" width="190" />
   </a>
 </div>
 
