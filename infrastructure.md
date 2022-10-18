@@ -95,7 +95,7 @@ myEnv.close()
 RDDL is a lifted language, which means it compactly describes variables and processes in a general non-specific way. It is best explained with an example.
 The following block describes the behavior of an abstract entity car, with first order dynamics:
 
-```javascript
+```python
 types {
       car : object;
 };
@@ -107,24 +107,36 @@ pvariables{
 };
 
 cpfs {
-      position\'(car) = position(car) + DT * velocity(car)
+      position'(car) = position(car) + DT * velocity(car)
 };
 ```
 This is a behavior description, this type of code can be found in the domain block of the RDDL code. In the code above no specific car is described. that will be done in the instance and non-fluents blocks. first we should define the objects in the problem:
-```cpp
+```python
 objects {
       car : {car1, car2};
 };
 ```
-Now that we have specifi car objects, we can define their intial state:
+Now that we have specific car objects, we can define their intial state:
 ```python
 init_state {
       position(car1) = -1.0;
       position(car2) = 1.0;
 };
 ```
+So in the lifted description we have behavior, types and objects for instantiation. When pyRDDLGym instantiate an environment it will *ground* everything, which means we will no longer have types and objects, we will have only effects and evolutions over the explicit variables of the problem, i.e., the variables of the problem will be (with their initial values):
+``` python
+states = { position_car1 : -1.0, position_car2 : 1.0 }
+actions = { velocity_car1 : 0.0, velocity_car2 : 0.0 } 
+```
+and the explicit effect will be:
+```python
+position_car1 = position_car1 + DT * velocity_car1;
+position_car2 = position_car2 + DT * velocity_car2;
+```
+The power of the lifted representation is the ability to easily specify different objects (and many of them), and in reasoning.
+When interactingn with pyRDDLGym environment, the states recieved and actions submitted are always specific (e.g., setting the velocity of car1) and thus grounded.
 
-
+*Note* the name conversions between the lifted and the grounded representation.
 
 ### Spaces
 
