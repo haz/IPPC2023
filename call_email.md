@@ -1,11 +1,12 @@
-========================================================================
+======================================================================== \
 2023 International Planning Competition
 Probabilistic and Reinforcement Learning Track
 
 Call for Participations and domains
 
-https://ataitler.github.io/IPPC2023/
-ippc2023-rddl@googlegroups.com
+https://ataitler.github.io/IPPC2023/ \
+ippc20232023-rddl@googlegroups.com 
+
 ========================================================================
 
 As part of the International Conference on Planning and Scheduling (ICAPS) 2023 in Prague, we will be hosting a novel Planning and Reinforcement Learning (RL) track.  Key features and goals of the competition include:
@@ -25,10 +26,11 @@ More information on the competition can be found at
   https://ataitler.github.io/IPPC2023/
 
 which includes a description of the RDDL modeling language as well as the Python RDDLGym interface and quick install instructions for running the existing sample domains covering 
-* aerial drone control, 
+* Aerial drone control, 
 * Mars Rover trajectory and sensor planning, 
-* two-sided recommender systems, and 
-* power systems generation.
+* Two-sided recommender systems, 
+* Power systems generation, and
+* Classical control.
 
 If you have any questions about the competition or participation, please do not hesitate to reach out to us.
 
