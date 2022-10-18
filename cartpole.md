@@ -1,4 +1,4 @@
-<p style="font-size:25px;text-align:left"><b>Mars Rover Science Mission Navigation</b></p>
+<p style="font-size:25px;text-align:left"><b>Cart Pole Control</b></p>
 
 <div style="width:100%;text-align:center;">
   <a href="images/cart_pole.gif">
