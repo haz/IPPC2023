@@ -65,6 +65,8 @@ There are several original domains at the time of the competition call, but more
     </div>
 </div>
 
+<br clear="left">
+
 In addition to the original domain, we have recreated some of the classical control domains in RDDL. Illustrating how easy it is to generate domains in pyRDDLSim:
 
 <div class="image123" style="center">
