@@ -136,7 +136,7 @@ position_car2 = position_car2 + DT * velocity_car2;
 The power of the lifted representation is the ability to easily specify different objects (and many of them), and in reasoning.
 When interactingn with pyRDDLGym environment, the states recieved and actions submitted are always specific (e.g., setting the velocity of car1) and thus grounded.
 
-*Note* the name conversions between the lifted and the grounded representation.
+- *Note* the name conversions between the lifted and the grounded representation.
 
 ### Spaces
 
