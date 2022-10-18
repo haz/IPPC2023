@@ -95,7 +95,7 @@ myEnv.close()
 RDDL is a lifted language, which means it compactly describes variables and processes in a general non-specific way. It is best explained with an example.
 The following block describes a moving car with first order dynamics:
 
-```cpp
+```python
 types {
       car : object;
 };
