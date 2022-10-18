@@ -18,22 +18,37 @@ Multi-agent path finding (MAPF) problem, where agents starts from a some initial
 
 for each agent the state vector is the position and velocity, and the action is the acceleration. The full state vector is the stacking of all agents’ states, and similarly for the actions. The reward is the total rewards collected from harvesting the mineral, minus the power consumption usued throughout the process.
 
+## Constants (non-fluents)
+
+| Constant                 | Type             |  Desc                                               |
+|:-------------------------|:-----------------|:----------------------------------------------------|
+| MAX_POWER(drone)         | float            |  Norm upper bound constraint on the power inputs    |
+| SCALE_FACTOR             | float            |  Time scale factor for dynamic equations (Delta T)  |
+| MINERAL_AREA(mineral)    | float            |  Mineral harvesting radius area                     |
+| MINERAL_VALUE(mineral)   | float            |  Mineral harvest value                              |
+| MINERAL_POS_X(mineral)   | float            |  Mineral X position                                 |
+| MINERAL_POS_XY(mineral)  | float            |  Mineral Y position                                 |
+
+All of these can be read from the RDDLEnv interface and from the rddl files.
+
 ## Action Space
 
 The actions are the forces operating on the drones by their motors in the *x* and *y* axes (decoupled model), and a harvest action that can be applied by a drone if it is in a mineral harvest region, the result of the harvest action if applicable is that the mineral is harvested, and cannot be harvested again.
 
-| Action               | type             |  Desc                          |
-|:---------------------|:-----------------|:-------------------------------|
-| power_x(drone)      | Box(1, float32)   |  Propelling force in x axis    |
-| power_y(drone)      | Box(1, float32)   |     Propelling force in y axis |
+| Action               | Type             |  Desc                          |
+|:--------------------|:-----------------|:-------------------------------|
+| power_x(drone)      | Box(1, -MAX_POWER(drone), MAX_POWER(drone), float32)   |  Propelling force in x axis    |
+| power_y(drone)      | Box(1, -MAX_POWER(drone), MAX_POWER(drone), float32)   |     Propelling force in y axis |
 | harvest(drone)      | Discrete(2)       |  Harvest if in mineral area    |
+
+- MAX_POWER(drone) is available from the RDDLEnv interface and in the rddl domain and instance.
 
 ## State Space
 
 The state space represents the positions and velocities of all the drones in the problem, as well as the state of all the minearls in the domain.
 The location and harvesting regions of the minearls are not part of the state, but are available through the non fluents in the problem.
 
-| State                      | type              |  Desc                                   |
+| State                      | Type              |  Desc                                   |
 |:---------------------------|:------------------|:----------------------------------------|
 | pos_x(drone)               | Box(1, float32)   | Position in x axis                      |
 | vel_x(drone)               | Box(1, float32)   |  Velocity in x axis                     |
