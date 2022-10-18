@@ -161,16 +161,23 @@ While these constants are not available through the state of the problem, it is 
 
 ### Visualization
 
-pyRDDLGym visualization is just like regular Gym. Users can visualize the current state of the simulation by calling `env.render()`. The standard visualizer that comes out of the box with every pyRDDLGym domain is the TextViz. TextViz just render an image with textual description of the states and their current values.
+pyRDDLGym visualization is just like regular Gym. Users can visualize the current state of the simulation by calling `env.render()`. The standard visualizer that comes out of the box with every pyRDDLGym domain (even used defined domain will have it without explicitly doing anything) is the TextViz. TextViz just renders an image with textual description of the states and their current values.
 
 Replacing the built is TextViz is simple as calling the environment method `env.set_visualizer(viz)` with `viz` as the desired visualization object.
+```python
+from Env import RDDLEnv as RDDLEnv
+from Visualizer.MountainCarViz import MountainCarVisualizer
 
+myEnv = RDDLEnv.RDDLEnv(domain='MountainCar\domain.rddl', instance='MountainCar\instance0.rddl')
+myEnv.set_visualizer(MountainCarVisualizer)
+```
 In order to build custom visualiztions (for new user defined domains), one just need to inherit the class `Visualizer.StateViz.StateViz()` and return in the `visualizer.render()` method a PIL image for the gym to render to the screen.
 
 ### Custom user defined domains
 
 Writing a new user defined domains is as easy as writing a few lines of text in a mathematical fashion!
-All is required is to specify the lifted constants, variables (all are refered as fluents in RDDL), behavior/dynamic of the problem and generating an instance with the actual objects and initial state in RDDL - and pyRDDLGym will do the rest.
+All is required is to specify the lifted constants, variables (all are refered as fluents in RDDL), behavior/dynamic of the problem and generating an instance with the actual objects and initial state in RDDL - and pyRDDLGym will do the rest.\
+For more information about how to create new domains in RDDL please see the *RDDL tutorial* at the top of this page.
 
 <hr>
 [Back to main page](index.md)
