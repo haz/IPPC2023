@@ -1,8 +1,8 @@
 <p style="font-size:25px;text-align:left"><b>Power Unit Commitmentn</b></p>
 
 <div style="width:100%;text-align:center;">
-  <a href="images/Rpowergen_static.png">
-    <img src="images/powergen_static.png" height="190" width="190" />
+  <a href="images/recsys_loop.png">
+    <img src="images/recsys_loop.png" height="190" width="190" />
   </a>
 </div>
 
