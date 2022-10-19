@@ -35,12 +35,17 @@ Coming soon!
 <!-- Please see our paper describing the design decisions and implementation details behind pyRDDLGym. -->
 
 ## Status 
-pyRDDLSim implements a subset of the capabilities of the full RDDL language, the things not included with the current distribution of pyRDDLSim is the following:
+pyRDDLSim implements a large subset of the full RDDL capabilities, with additional new capabilities not originaly present in RDDL.
+
+The things not included with the current distribution of pyRDDLSim are the following:
 -  No enums.
--  leveling is available but not required anymore, pyRDDLSim can reason the dependencies and thus the level arguments of derived-fluents and interm-fluents can be omitted.
--  state-action-constrains is deprecated in favor of state-invariants and action-preconditions
--  action-preconditions are not checked during simulations and should be enforced by the cpfs directly. Only actions-preconditions of the form `action <= BOUND` and `action >= BOUND` are parsed for the benefit of gym spaces definitions.
+-  State-action-constrains is deprecated in favor of state-invariants and action-preconditions
+-  Action-preconditions are not checked during simulations and should be enforced by the cpfs directly. Only actions-preconditions of the form `action <= BOUND` and `action >= BOUND` are parsed for the benefit of gym spaces definitions.
 -  Observations, as the 2023 competition is fully observable, observations are not supported at this stage, and the state is accessed directly.
+
+New capabilities over the original RDDL:
+-  Leveling is available but not required anymore, pyRDDLSim can reason the dependencies and thus the level arguments of derived-fluents and interm-fluents can be omitted.
+-  Terminal states. it is possible not to define terminal state, where reached the simulation terminates. In our view goals that should end the simulations should also treated as terminal states.
 
 
 ## Getting started
