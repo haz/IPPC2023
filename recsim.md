@@ -2,7 +2,7 @@
 
 <div style="width:100%;text-align:center;">
   <a href="images/recsys_loop.gif">
-    <img src="images/recsys_loop.fig" height="190" width="190" />
+    <img src="images/recsys_loop.gif" height="190" width="190" />
   </a>
 </div>
 
