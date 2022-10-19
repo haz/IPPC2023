@@ -56,7 +56,7 @@ There are several original domains at the time of the competition call, but more
     </div>
     <div style="float:left;margin-right:5px;">
         <a href="recsim.html">
-        <img class="middle-img" src="images/Rover_image.gif" height="190" width="190" />
+        <img class="middle-img" src="images/recsys_loop.gif" height="190" width="190" />
         <p style="text-align:center;">Recommendation Systems</p>
         </a>
     </div>
