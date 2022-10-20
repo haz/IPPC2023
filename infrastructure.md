@@ -13,7 +13,7 @@ RDDL is out there since 2010, with a JAVA simulator and an excellent tutorial, e
 
 We have compiled the above tutorial for the new pyRDDLGym simulator, so those who wish to learn RDDL can enjoy a step by step with pyRDDLGym example RDDL crash course. It is also possible to just skip ahead for the next section, without knowing RDDL (and use the existing environemnts),pyRDDLGym is a fully gym compatible simulator, and can be treated as such, with the knowledge that the environments are not written in python but in RDDL.
 
-- [new pyRDDLGym RDDL tutorial](pyrddlgym_rddl_tutorial.html)
+- [New pyRDDLGym RDDL tutorial](pyrddlgym_rddl_tutorial.html)
 
 <!-- It is highly recommanded to read through the tutorial even without cloning the JAVA simulator to get the hang of it. Note that in order to use pyRDDLGym (see next section) it is not required to fully understand RDDL, pyRDDLGym is a fully gym compatible simulator, and can be treated as such, with the knowledge that the environments are not written in python but in RDDL. -->
 
