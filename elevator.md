@@ -8,7 +8,7 @@
 
 |       |      |
 |:------------------|:------------|
-| Import folder     | Power_gen  |
+| Import folder     | Elevator  |
 | Action space      | Dict        |
 | State space       | Dict        |
 
