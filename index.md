@@ -80,7 +80,14 @@ There are several original domains at the time of the competition call, but more
         <p style="text-align:center;">UAV</p>
         </a>
     </div>
+    <div style="float:left;margin-right:5px;">
+        <a href="elevator.html">
+        <img src="images/elevator2.gif" height="190" width="190" />
+        <p style="text-align:center;">UAV</p>
+        </a>
+    </div>
 </div>
+
 
 <br clear="left">
 
