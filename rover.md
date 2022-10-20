@@ -22,12 +22,12 @@ for each agent the state vector is the position and velocity, and the action is 
 
 | Constant                 | Type             |  Desc                                               |
 |:-------------------------|:-----------------|:----------------------------------------------------|
-| MAX_POWER(drone)         | float32          |  Norm upper bound constraint on the power inputs    |
-| SCALE_FACTOR             | float32          |  Time scale factor for dynamic equations (Delta T)  |
-| MINERAL_AREA(mineral)    | float32          |  Mineral harvesting radius area                     |
-| MINERAL_VALUE(mineral)   | float32          |  Mineral harvest value                              |
-| MINERAL_POS_X(mineral)   | float32          |  Mineral X position                                 |
-| MINERAL_POS_XY(mineral)  | float32          |  Mineral Y position                                 |
+| MAX-POWER(drone)         | float32          |  Norm upper bound constraint on the power inputs    |
+| SCALE-FACTOR             | float32          |  Time scale factor for dynamic equations (Delta T)  |
+| MINERAL-AREA(mineral)    | float32          |  Mineral harvesting radius area                     |
+| MINERAL-VALUE(mineral)   | float32          |  Mineral harvest value                              |
+| MINERAL-POS_X(mineral)   | float32          |  Mineral X position                                 |
+| MINERAL-POS_XY(mineral)  | float32          |  Mineral Y position                                 |
 
 All of these can be read from the RDDLEnv interface and from the RDDL files.
 
@@ -37,8 +37,8 @@ The actions are the forces operating on the drones by their motors in the *x* an
 
 | Action               | Type             |  Desc                          |
 |:--------------------|:-----------------|:-------------------------------|
-| power_x(drone)      | Box(1, -MAX_POWER(drone), MAX_POWER(drone), float32)   |  Propelling force in x axis    |
-| power_y(drone)      | Box(1, -MAX_POWER(drone), MAX_POWER(drone), float32)   |     Propelling force in y axis |
+| power-x(drone)      | Box(1, -MAX_POWER(drone), MAX_POWER(drone), float32)   |  Propelling force in x axis    |
+| power-y(drone)      | Box(1, -MAX_POWER(drone), MAX_POWER(drone), float32)   |     Propelling force in y axis |
 | harvest(drone)      | Discrete(2)       |  Harvest if in mineral area    |
 
 - MAX_POWER(drone) is available from the RDDLEnv interface and in the RDDL domain and instance.
@@ -50,22 +50,22 @@ The location and harvesting regions of the minearls are not part of the state, b
 
 | State                      | Type              |  Desc                                   |
 |:---------------------------|:------------------|:----------------------------------------|
-| pos_x(drone)               | Box(1, -np.inf, np.inf, float32)   | Position in x axis                      |
-| vel_x(drone)               | Box(1, -np.inf, np.inf, float32)   |  Velocity in x axis                     |
-| pos_y(drone)               | Box(1, -np.inf, np.inf, float32)   |  Position in y axis                     |
-| vel_y(drone)               | Box(1, -np.inf, np.inf, float32)   |  Velocity in y axis                     |
+| pos-x(drone)               | Box(1, -np.inf, np.inf, float32)   | Position in x axis                      |
+| vel-x(drone)               | Box(1, -np.inf, np.inf, float32)   |  Velocity in x axis                     |
+| pos-y(drone)               | Box(1, -np.inf, np.inf, float32)   |  Position in y axis                     |
+| vel-y(drone)               | Box(1, -np.inf, np.inf, float32)   |  Velocity in y axis                     |
 | mineral_harvested(mineral) | Discrete(2)       |  True if the minearl was not harvested  |
 
 ## Rewards
 
 The reward function is defined as 
 
-$$r_t = \sum_{d \in drones} -power_x(d)^2 - power_y(d)^2 - harvest\_action(d) + harvest(d,m) $$ 
+$$r_t = \sum_{d \in drones} -power-x(d)^2 - power-y(d)^2 - harvest-action(d) + harvest(d,m) $$ 
 
 where, 
-- $power_x(d)$ - is the current force in the x axis of drone *d*.
-- $power_y(d)$ - is the current force in the y axis of drone *d*.
-- $harvest\_action(d)$ - is the cost of harvesting.
+- $power-x(d)$ - is the current force in the x axis of drone *d*.
+- $power-y(d)$ - is the current force in the y axis of drone *d*.
+- $harvest-action(d)$ - is the cost of harvesting.
 - $harvest(d)$ - is reward for succesfully harvesting mineral *m* by drone *d*.
 
 
