@@ -83,7 +83,7 @@ There are several original domains at the time of the competition call, but more
     <div style="float:left;margin-right:5px;">
         <a href="elevator.html">
         <img src="images/elevator2.gif" height="190" width="190" />
-        <p style="text-align:center;">UAV</p>
+        <p style="text-align:center;">Elevator Control</p>
         </a>
     </div>
 </div>
