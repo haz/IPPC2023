@@ -47,7 +47,15 @@ More information about the infrastructure, how to use it and how to add user def
 
 There are several original domains at the time of the competition call, but more domains will be added, and we strongly encourage the community to create and contribute used defined domains in you field of expertise, or any problem you think the community should try to solve. The highest quality community contributed domains will be selected to be part of the competition's domains. We are aware that participants that submit a domain that is used have some advantage with respect to performance on that domain. We view this as a good incentive for teams to submit high quality proposals.
 
+
+
 <div class="image123" style="center">
+  <div style="float:left;margin-right:5px;">
+        <a href="wildfire.html">
+        <img src="images/wildfire_image.gif" height="190" width="190"  />
+        <p style="text-align:center;">Fire Fighting (from tutorial)</p>
+        </a>
+    </div>
     <div style="float:left;margin-right:5px;">
         <a href="rover.html">
         <img src="images/Rover_image2.gif" height="190" width="190"  />
