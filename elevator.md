@@ -77,7 +77,7 @@ he state space represents the temerature and the previous production of each of 
 
 ## Rewards
 
-\[r_t = - p_e * \sum_{e \in elevators} num-person-in-elevator(e) - p_w * \sum_{f \in floors} num-person-waiting(f) + rew * \sum_{e \in elevators} (num-person-in-elevator(e) * I_bottom(e))\]
+$r_t = - p_e * \sum_{e \in elevators} num-person-in-elevator(e) - p_w * \sum_{f \in floors} num-person-waiting(f) + rew * \sum_{e \in elevators} (num-person-in-elevator(e) * I_bottom(e))$
 
 where,
 
