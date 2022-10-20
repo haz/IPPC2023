@@ -50,7 +50,7 @@ There are several original domains at the time of the competition call, but more
 <div class="image123" style="center">
     <div style="float:left;margin-right:5px;">
         <a href="rover.html">
-        <img src="images/Rover_image.gif" height="190" width="190"  />
+        <img src="images/Rover_image2.gif" height="190" width="190"  />
         <p style="text-align:center;">Mars Rovers Science Mission</p>
         </a>
     </div>
