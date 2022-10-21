@@ -1,5 +1,8 @@
-<p style="font-size:30px;text-align:center"><b>Welcome to the 2023 International</b></p>
-<p style="font-size:30px;text-align:center"><b>Probabilistic Planning Competition</b></p>
+<!--<p style="font-size:30px;text-align:center"><b>Welcome to the 2023 International</b></p>
+<p style="font-size:30px;text-align:center"><b>Probabilistic Planning Competition</b></p>-->
+<p style="font-size:30px;text-align:center;line-height:100%"><b>Welcome to the International Planning Competition 2023: Probabilistic and Reinforcement Learning Track</b></p>
+<!--<p style="font-size:30px;text-align:center"><b>Probabilistic and Reinforcement Learning Track</b></p>-->
+
 
 The International Probabilistic Planning Competition is organized in the context of the International Conference on Planning and Scheduling (ICAPS). It empirically evaluates state-of-the-art planning systems on a number of benchmark problems. The goals of the IPC are to promote planning research, highlight challenges in the planning community and provide new and interesting problems as benchmarks for future research.
 
@@ -11,8 +14,8 @@ Please forward the following calls to all interested parties:
 - [Call for Participation and Domains](/call_email.md)
 
 <div style="width:100%;text-align:center;">
-  <a href="images/IPPC2023_Graphical_Call.jpg">
-    <img src="images/IPPC2023_Graphical_Call.jpg" height="246" width="190" />
+  <a href="images/IPPC2023_Graphical_Call_V2.jpg">
+    <img src="images/IPPC2023_Graphical_Call_V2.jpg" height="246" width="190" />
   </a>
 </div>
 
@@ -80,7 +83,14 @@ There are several original domains at the time of the competition call, but more
         <p style="text-align:center;">UAV</p>
         </a>
     </div>
+    <div style="float:left;margin-right:5px;">
+        <a href="elevator.html">
+        <img src="images/elevator2.gif" height="190" width="190" />
+        <p style="text-align:center;">Elevator Control</p>
+        </a>
+    </div>
 </div>
+
 
 <br clear="left">
 
