@@ -451,4 +451,4 @@ The above code only generate a single image. An example of wildfire animation is
 [wildfire instance link](https://github.com/ataitler/pyRDDLGym/blob/main/Competition/Wildfire/instance0.rddl)
 
 
-
+### This tutorial was done in collaboration with Bayaan Shalaby, John Zhou, and Scott Sanner.
