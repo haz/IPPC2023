@@ -4,8 +4,8 @@
 The Relational Dynamic Influence Diagram Language (RDDL) is a uniform language where states, actions, and observations (whether discrete or continuous) are parameterized variables and the evolution of a fully or partially observed (stochastic) process is specified via (stochastic) functions over next state variables conditioned on current state and action variables.  An objective function measures the immediate effects of the state, actions, and observation variables, and should be optimized over time for optimal control. To solidify this definition, we will begin our discussion with an example.
 
 <div style="width:100%;text-align:center;">
-  <a href="images/tutorial/firespread.gif">
-    <img src="images/tutorial/firespread.gif" height="300" width="300" />
+  <a href="images/tutorial/wildfirespread2.gif">
+    <img src="images/tutorial/wildfirespread2.gif" height="300" width="300" />
   </a>
 </div>
 
@@ -275,8 +275,8 @@ The domain block, as an individual rddl file, defines and formulates the problem
 
 The purpose of the non-fluents block is to essentially initialize the problem. This entails specifying the objects as well as overriding the default values of the non-fluents, **as required** (variables that are not overridden will retain their default values, as per the domain block). Recall that the map of the area is as follows: 
 <div style="width:100%;text-align:center;">
-  <a href="images/tutorial/fire2.png">
-    <img src="images/tutorial/fire2.png" height="200" width="200" />
+  <a href="images/tutorial/fire0.png">
+    <img src="images/tutorial/fire0.png" height="300" width="300" />
   </a>
 </div>
 
@@ -301,8 +301,8 @@ The next block to be written is the non-fluents sub-block, which is where we ove
 ```
 We will first override the relevant NEIGHBOR variables. For every cell depicted in the given map, we set the variables for it and it’s neighbouring cells as true. For instance, consider the cell (x1, y1). As seen in the figure below, the neighbors for (x1,y1) are (x1,y2), (x2,y1), and (x2,y2), so we set the corresponding NEIGHBOR variables to true (lines 8-10). Note that for boolean non-fluent variables, simply typing the variable name is equivalent to setting it to true (i.e.  **NEIGHBOR(x1,y1,x1,y2)** is equivalent to **NEIGHBOR(x1,y1,x1,y2) = true;)**
 <div style="width:100%;text-align:center;">
-  <a href="images/tutorial/fire3.png">
-    <img src="images/tutorial/fire3.png" height="200" width="200" />
+  <a href="images/tutorial/fire0_arrow.png">
+    <img src="images/tutorial/fire0_arrow.png" height="200" width="200" />
   </a>
 </div>
 
