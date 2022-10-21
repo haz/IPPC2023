@@ -302,7 +302,7 @@ The next block to be written is the non-fluents sub-block, which is where we ove
 We will first override the relevant NEIGHBOR variables. For every cell depicted in the given map, we set the variables for it and it’s neighbouring cells as true. For instance, consider the cell (x1, y1). As seen in the figure below, the neighbors for (x1,y1) are (x1,y2), (x2,y1), and (x2,y2), so we set the corresponding NEIGHBOR variables to true (lines 8-10). Note that for boolean non-fluent variables, simply typing the variable name is equivalent to setting it to true (i.e.  **NEIGHBOR(x1,y1,x1,y2)** is equivalent to **NEIGHBOR(x1,y1,x1,y2) = true;)**
 <div style="width:100%;text-align:center;">
   <a href="images/tutorial/fire0_arrow.png">
-    <img src="images/tutorial/fire0_arrow.png" height="200" width="200" />
+    <img src="images/tutorial/fire0_arrow.png" height="300" width="300" />
   </a>
 </div>
 
@@ -372,8 +372,8 @@ First, we specify the domain and non-fluents we are referencing.
 ```
 Next, we define an initial state where the wildfire first initiates (e.g. cell(x1,y3) in this instance). 
 <div style="width:100%;text-align:center;">
-  <a href="images/tutorial/fire4.png">
-    <img src="images/tutorial/fire4.png" height="200" width="200" />
+  <a href="images/tutorial/fire0.png">
+    <img src="images/tutorial/fire0.png" height="300" width="300" />
   </a>
 </div>
 
@@ -411,7 +411,7 @@ from Visualizer.WildfireViz import WilfireVisualizer
 
 FOLDER = 'Competition/Wildfire/'
 
-# create pyRDDLGym enviroment
+# create pyRDDLGym enviroment object
 myEnv = RDDLEnv.RDDLEnv(domain=FOLDER + 'domain.rddl', instance=FOLDER + 'instance0.rddl', is_grounded=False)
 
 # specify visualizer, if not specified, pyRDDLGym will use a defulat textViz
@@ -449,5 +449,6 @@ The above code only generate a single image. An example of wildfire animation is
 
 ## 3.1 Appendix (Wildfire Instance)
 [wildfire instance link](https://github.com/ataitler/pyRDDLGym/blob/main/Competition/Wildfire/instance0.rddl)
+
 
 
