@@ -1,5 +1,5 @@
 
-<p style="font-size:25px;text-align:left"><b>Power Unit Commitmentn</b></p>
+<p style="font-size:25px;text-align:left"><b>Power Unit Commitment</b></p>
 
 <div style="width:100%;text-align:center;">
   <a href="images/power_gen.gif">
@@ -53,7 +53,7 @@ The state space represents the temerature and the previous production of each of
 
 | State                      | Type              |  Desc                                   |
 |:---------------------------|:------------------|:----------------------------------------|
-| temperature                | Box(1, inf, inf, float32)   | Current temperature                     |
+| temperature                | Box(1, -inf, inf, float32)   | Current temperature                     |
 | prevProd(plant)            | Discrete(-inf, inf)   |  previous power produced per plant      |
 
 
