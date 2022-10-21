@@ -89,6 +89,37 @@ Next, we must install the requiremented packages for pyRDDLGym using the followi
 ```
 $ pip install -r requirements.txt
 ```
+Alternatively you can install pyRDDLGym using pip:
+```
+$ pip install pyRDDLGym
+```
+PyRDDLGYm follows closely to the gym interfaces. Below is an example of running wildfire domain using an random agent.
+```
+from Env import RDDLEnv as RDDLEnv
+from Policies.Agents import RandomAgent
+
+FOLDER = 'Competition/Wildfire/'
+
+steps = 100
+
+# setup env with wildfire rddl files
+myEnv = RDDLEnv.RDDLEnv(domain=FOLDER + 'domain.rddl', instance=FOLDER + 'instance0.rddl', is_grounded=False)
+
+# intialze an agent with random policy
+agent = RandomAgent(action_space=myEnv.action_space, num_actions=myEnv.NumConcurrentActions)
+
+state = myEnv.reset()
+total_reward = 0
+
+for step in range(steps):
+    # generate a random action
+    action = agent.sample_action()
+    next_state, reward, done, info = myEnv.step(action)
+    total_reward += reward
+
+print("episode ended with reward {}".format(total_reward))
+```
+
 
 ## 2.2 Problem Decomposition (Optional)
 This problem, like many other problems modelled using RDDL, is a Markov Decision Process (MDP).  Thus, before we begin to formulate this in RDDL, it is helpful to first decompose the problem into the components of an MDP. Each MDP consists of five components: states (S), actions (A), transition model (T), immediate reward (R), and discount factor (𝛾). 
@@ -370,16 +401,53 @@ Congratulations! You have just completed writing your first RDDL domain and inst
 pyRDDLGym currently do not support syntax checking, this feature might be included in future releases.
 
 ## 2.6.2 Debugging Logical Errors: Visualization
-Once the code no longer contains syntax errors, it can be run without compile-time or run-time issues. However, this does not indicate that the code is logically correct. Thus, we must now run the code and study the output to ensure that it is performing as desired. 
-To run the files we use the following command, 
+Once the code no longer contains syntax errors, it can be run without compile-time or run-time issues. However, this does not indicate that the code is logically correct. Thus, we must now run the code and study the output to ensure that it is performing as desired. PyDDGYM comes with a default text visualizer where the state dictionary is displayed on a white canvas. PyRDDLGym have prebuild visualizers for common RDDL domains. These visualizers can be found in /Visualizer folder. Users can also build their own visualizer classes in /Visualizer. 
+To generate an visual output of the domain, we can run the following code:
 ```
+from PIL import Image
 from Env import RDDLEnv as RDDLEnv
 from Policies.Agents import RandomAgent
 from Visualizer.WildfireViz import WilfireVisualizer
 
 FOLDER = 'Competition/Wildfire/'
-steps = 100
+
+# create pyRDDLGym enviroment
 myEnv = RDDLEnv.RDDLEnv(domain=FOLDER + 'domain.rddl', instance=FOLDER + 'instance0.rddl', is_grounded=False)
-agent = RandomAgent(action_space=myEnv.action_space, num_actions=myEnv.NumConcurrentActions)
+
+# specify visualizer, if not specified, pyRDDLGym will use a defulat textViz
 myEnv.set_visualizer(WilfireVisualizer)
+
+# generate initial state
+state = myEnv.reset()
+
+# render function generate an PIL image from a state
+# to_display is a bool if set True will display the rendered image
+img = myEnv.render(to_display=True)
+img.save('./inital_state.png')
+```
+The above code only generate a single image. An example of wildfire animation is shown below:
+<div style="width:100%;text-align:center;">
+  <a href="images/tutorial/wildfire.gif">
+    <img src="images/tutorial/wildfire.gif" height="250" width="250" />
+  </a>
+</div>
+
+<center>
+
+|       |      |
+|:------------------|:------------|
+| **Shape/Colour**  | **Meaning** |
+| Light Green       | Non-Target  |
+| Dark Green        | Target      |
+| Light/Dark Grey   | Out of Fuel |
+| Red Triangle      | Burning     |
+
+</center>
+
+## 3.0 Appendix (Wilfire Domain)
+[wildfire domain link](https://github.com/ataitler/pyRDDLGym/blob/main/Competition/Wildfire/domain.rddl)
+
+## 3.1 Appendix (Wildfire Instance)
+[wildfire instance link](https://github.com/ataitler/pyRDDLGym/blob/main/Competition/Wildfire/instance0.rddl)
+
 
