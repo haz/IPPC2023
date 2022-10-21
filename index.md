@@ -1,6 +1,6 @@
 <p style="font-size:30px;text-align:center"><b>Welcome to the 2023 International</b></p>
 <p style="font-size:30px;text-align:center"><b>Probabilistic Planning Competition</b></p>
-<p style="font-size:30px;text-align:center"><b>Welcome to the International Planning Competition 2023:</b></p>
+<p style="font-size:30px;text-align:center"><b>Welcome to the International Planning Competition 2023: robabilistic and Reinforcement Learning Track</b></p>
 <p style="font-size:30px;text-align:center"><b>Probabilistic and Reinforcement Learning Track</b></p>
 
 
