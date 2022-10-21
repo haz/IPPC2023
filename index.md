@@ -14,8 +14,8 @@ Please forward the following calls to all interested parties:
 - [Call for Participation and Domains](/call_email.md)
 
 <div style="width:100%;text-align:center;">
-  <a href="images/IPPC2023_Graphical_Call.jpg">
-    <img src="images/IPPC2023_Graphical_Call.jpg" height="246" width="190" />
+  <a href="images/IPPC2023_Graphical_Call_V2.jpg">
+    <img src="images/IPPC2023_Graphical_Call_V2.jpg" height="246" width="190" />
   </a>
 </div>
 
