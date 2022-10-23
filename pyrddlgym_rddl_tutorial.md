@@ -431,19 +431,13 @@ The above code only generate a single image. An example of wildfire animation is
     <img src="images/tutorial/wildfire.gif" height="250" width="250" />
   </a>
 </div>
-
-<center>
-
   
-|                   |             |
+|**Shape/Colour**   |**Meaning**  |
 |:------------------|:------------|
-| **Shape/Colour**  | **Meaning** |
 | Light Green       | Non-Target  |
 | Dark Green        | Target      |
 | Light/Dark Grey   | Out of Fuel |
 | Red Triangle      | Burning     |
-
-</center>
 
 ## 3.0 Appendix (Wilfire Domain)
 [wildfire domain link](https://github.com/ataitler/pyRDDLGym/blob/main/Competition/Wildfire/domain.rddl)
