@@ -434,7 +434,8 @@ The above code only generate a single image. An example of wildfire animation is
 
 <center>
 
-|       |      |
+  
+|                   |             |
 |:------------------|:------------|
 | **Shape/Colour**  | **Meaning** |
 | Light Green       | Non-Target  |
