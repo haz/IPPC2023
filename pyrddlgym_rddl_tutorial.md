@@ -13,7 +13,7 @@ Imagine that you are an emergency manager tasked to control a wildfire, as depic
 
 <div style="width:100%;text-align:center;">
   <a href="images/tutorial/eq1.png">
-    <img src="images/tutorial/eq1.png" height="75" width="700" />
+    <img src="images/tutorial/eq1.png" height="50" width="500" />
   </a>
 </div>
 
@@ -137,7 +137,7 @@ RDDL notation remark: As a convention in notation, if the current state is S, th
 
 **Actions (A)**: defines what can be done on a particular state. In this case, the firefighters can perform two actions, **put-out** or **cut-out**, at position **(x-pos, y-pos)**. Both of the actions are designed to be deterministic such that one action specifies and assures a certain transition to a new state. Put-out means to stop the fire at this location, thus when put-out action is performed, this location is no longer burning, **put-out(x,y)** = True **⇒burning’(x,y)** = False. Cut-out removes the combustible material (i.e. fuel) from the current cell to make it out of fuel, **put-out(x,y)** = True ⇒ **out-of-fuel’(x,y)** = True.
 
-**Transition Model (T)**: specifies the probability to enter a new state s' based on the current state(s) or when a stochastic action a is performed on the current state(s) s, P(s'|s,a). In the Wildfire example, the probability of a certain cell to burn is defined by the probability function outlined in Section 1.0, varying based on the number of current neighbours on fire.  Note that we define the transition probability of each next state fluent (e.g., burning’(x,y) or out-of-fuel’(x,y)) as an independent probabilistic function of current state properties.  
+**Transition Model (T)**: specifies the probability to enter a new state s' based on the current state(s) or when a stochastic action a is performed on the current state(s) s, P(s'\|s,a). In the Wildfire example, the probability of a certain cell to burn is defined by the probability function outlined in Section 1.0, varying based on the number of current neighbours on fire.  Note that we define the transition probability of each next state fluent (e.g., burning’(x,y) or out-of-fuel’(x,y)) as an independent probabilistic function of current state properties.  
 
 RDDL correlated effects remark: One of the most common questions for RDDL is how to model state transitions where two or more fluents depend on a common probabilistic outcome (i.e., how do we model correlated effects)?  The quick answer is that one should use intermediate fluents to model a probabilistic outcome and then condition next state outcomes on this intermediate fluent (see the [RDDL language specification](http://users.cecs.anu.edu.au/~ssanner/IPPC_2011/RDDL.pdf) for more information and example usage of intermediate fluents).  The only current caveat of using intermediate fluents is that few existing RDDL planners support them, though this should change in the future.
 
@@ -210,16 +210,16 @@ Finally, we define the action-fluent variables, which are the actions you can ta
 ### 2.3.4 cpfs Block 
 The cpfs block was defined in the introduction of this documentation. This block is only repeated here again for completeness. Additionally, we provide flow diagrams of each state transition with corresponding lines annotated should the reader have difficulty understanding the cpfs block. 
 
-In the following figures, Probability means the probability that a non-target cell begins to burn, shown as the equation in the first section. NB: Due to the nature of target cell, it is designed such that a target cell, if not having any neighbouring cell burning, will not start a fire on its own, or Probability(burning(x,y) | target(x,y)) = 0.
+In the following figures, Probability means the probability that a non-target cell begins to burn, shown as the equation in the first section. NB: Due to the nature of target cell, it is designed such that a target cell, if not having any neighbouring cell burning, will not start a fire on its own, or Probability(burning(x,y) \| target(x,y)) = 0.
 
 <div style="width:100%;text-align:center;">
   <a href="images/tutorial/graph1.png">
-    <img src="images/tutorial/graph1.png" height="1000" width="1000" />
+    <img src="images/tutorial/graph1.png" height="600" width="600" />
   </a>
 </div>
 <div style="width:100%;text-align:center;">
   <a href="images/tutorial/graph2.png">
-    <img src="images/tutorial/graph2.png" height="800" width="1000" />
+    <img src="images/tutorial/graph2.png" height="500" width="800" />
   </a>
 </div>
 
