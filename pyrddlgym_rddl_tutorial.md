@@ -95,29 +95,36 @@ $ pip install pyRDDLGym
 ```
 PyRDDLGYm follows closely to the gym interfaces. Below is an example of running wildfire domain using an random agent.
 ```
-from Env import RDDLEnv as RDDLEnv
-from Policies.Agents import RandomAgent
+from pyRDDLGym import RDDLEnv
+from pyRDDLGym import ExampleManager
+from pyRDDLGym.Policies.Agents import RandomAgent
 
-FOLDER = 'Competition/Wildfire/'
+ENV = 'Wildfire'
 
-steps = 100
+# get the environment infos
+EnvInfo = ExampleManager.GetEnvInfo(ENV)
 
-# setup env with wildfire rddl files
-myEnv = RDDLEnv.RDDLEnv(domain=FOLDER + 'domain.rddl', instance=FOLDER + 'instance0.rddl', is_grounded=False)
-
-# intialze an agent with random policy
+# set up the environment class, choose instance 0 because every example has at least one example instance
+myEnv = RDDLEnv.RDDLEnv(domain=EnvInfo.get_domain(), instance=EnvInfo.get_instance(0))
+# set up the environment visualizer
+myEnv.set_visualizer(EnvInfo.get_visualizer())
+# set up an example aget
 agent = RandomAgent(action_space=myEnv.action_space, num_actions=myEnv.NumConcurrentActions)
 
-state = myEnv.reset()
 total_reward = 0
+state = myEnv.reset()
 
-for step in range(steps):
-    # generate a random action
+for step in range(myEnv.horizon):
+    myEnv.render()
     action = agent.sample_action()
     next_state, reward, done, info = myEnv.step(action)
     total_reward += reward
+    state = next_state
+    if done:
+        break
 
-print("episode ended with reward {}".format(total_reward))
+print("episode ended with reward {}".format(total_reward))  
+myEnv.close()
 ```
 
 
@@ -404,21 +411,24 @@ pyRDDLGym currently do not support syntax checking, this feature might be includ
 Once the code no longer contains syntax errors, it can be run without compile-time or run-time issues. However, this does not indicate that the code is logically correct. Thus, we must now run the code and study the output to ensure that it is performing as desired. PyDDGYM comes with a default text visualizer where the state dictionary is displayed on a white canvas. PyRDDLGym have prebuild visualizers for common RDDL domains. These visualizers can be found in /Visualizer folder. Users can also build their own visualizer classes in /Visualizer. 
 To generate an visual output of the domain, we can run the following code:
 ```
-from PIL import Image
-from Env import RDDLEnv as RDDLEnv
-from Policies.Agents import RandomAgent
-from Visualizer.WildfireViz import WilfireVisualizer
+from pyRDDLGym import RDDLEnv
+from pyRDDLGym import ExampleManager
+from pyRDDLGym.Policies.Agents import RandomAgent
 
-FOLDER = 'Competition/Wildfire/'
+ENV = 'Wildfire'
 
-# create pyRDDLGym enviroment object
-myEnv = RDDLEnv.RDDLEnv(domain=FOLDER + 'domain.rddl', instance=FOLDER + 'instance0.rddl', is_grounded=False)
+# get the environment infos
+EnvInfo = ExampleManager.GetEnvInfo(ENV)
 
-# specify visualizer, if not specified, pyRDDLGym will use a defulat textViz
-myEnv.set_visualizer(WilfireVisualizer)
+# set up the environment class, choose instance 0 because every example has at least one example instance
+myEnv = RDDLEnv.RDDLEnv(domain=EnvInfo.get_domain(), instance=EnvInfo.get_instance(0))
+# set up the environment visualizer
+myEnv.set_visualizer(EnvInfo.get_visualizer())
 
 # generate initial state
 state = myEnv.reset()
+
+total_reward = 0
 
 # render function generate an PIL image from a state
 # to_display is a bool if set True will display the rendered image
