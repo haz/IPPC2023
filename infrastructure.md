@@ -30,7 +30,7 @@ Please cite as
       year = 2010}
 ```
 
-# pyRDDLSim
+# pyRDDLGym
 
 pyRDDLSim is a generic autogeneration simulator from RDDL files to OpenAI Gym environments.
 
