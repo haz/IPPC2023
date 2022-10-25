@@ -235,7 +235,7 @@ termination {
 	...
 };
 ```
-where `Terminal_conditions#` are boolean formulas. The termination decision is a disjunction of all the conditions in the block (termination if at least on is True).
+where `Terminal_condition#` are boolean formulas. The termination decision is a disjunction of all the conditions in the block (termination if at least on is True).
 
 ### Visualization
 
