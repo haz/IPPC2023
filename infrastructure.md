@@ -6,16 +6,11 @@ RDDL is intended to compactly support the representation of a wide range of rela
 
 # Getting started with RDDL
 
-RDDL is out there since 2010, with a JAVA simulator and an excellent tutorial, explaining step by step with the help of a simple and illustrative example the power of RDDL and how to describe an MDP as an RDDL domain and instance. 
-
-- [RDDL tutorial](https://sites.google.com/site/rddltutorial/)
-- [JAVA RDDLSim](https://github.com/ssanner/rddlsim)
-
-We have compiled the above tutorial for the new pyRDDLGym simulator, so those who wish to learn RDDL can enjoy a step by step with pyRDDLGym example RDDL crash course. It is also possible to just skip ahead for the next section, without knowing RDDL (and use the existing environemnts),pyRDDLGym is a fully gym compatible simulator, and can be treated as such, with the knowledge that the environments are not written in python but in RDDL.
-
+The following tutorial covers RDDL basics and how to run it in pyRDDLGym:
 - [New pyRDDLGym RDDL tutorial](pyrddlgym_rddl_tutorial.html)
 
-<!-- It is highly recommanded to read through the tutorial even without cloning the JAVA simulator to get the hang of it. Note that in order to use pyRDDLGym (see next section) it is not required to fully understand RDDL, pyRDDLGym is a fully gym compatible simulator, and can be treated as such, with the knowledge that the environments are not written in python but in RDDL. -->
+
+For those who wish to learn RDDL at a later time, it is possible to just skip ahead for the next section, without knowing RDDL (and use the existing environemnts), pyRDDLGym is a fully gym compatible simulator, and can be treated as such, with the knowledge that the environments are not written in python but in RDDL.
 
 The RDDL language guide which documents all the language components is also available here:
 - [RDDL language guide](http://users.cecs.anu.edu.au/~ssanner/IPPC_2011/RDDL.pdf)
@@ -29,6 +24,16 @@ Please cite as
       note = "http://users.cecs.anu.edu.au/~ssanner/IPPC_2011/RDDL.pdf",
       year = 2010}
 ```
+
+
+### Legacy RDDL
+RDDL is out there since 2010, with a JAVA simulator and an excellent tutorial, explaining step by step with the help of a simple and illustrative example the power of RDDL and how to describe an MDP as an RDDL domain and instance. 
+
+- [RDDL tutorial](https://sites.google.com/site/rddltutorial/)
+- [JAVA RDDLSim](https://github.com/ssanner/rddlsim)
+
+**Note**: the 2023 competition is fully in python and the old simulator will not be used.
+
 
 # pyRDDLGym
 
