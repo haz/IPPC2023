@@ -109,6 +109,12 @@ In addition to the original domain, we have recreated some of the classical cont
         <p style="text-align:center;">Mountain Car</p>
         </a>
     </div>
+  <div style="float:left;margin-right:5px;">
+        <a href="racecar.html">
+        <img class="middle-img" src="images/racecar.gif" height="190" width="190" />
+        <p style="text-align:center;">Race Car</p>
+        </a>
+    </div>
 </div>
 
 <br clear="left">
