@@ -8,7 +8,7 @@
 
 |       |      |
 |:------------------|:------------|
-| Import folder     | MountainCar |
+| Import folder     | RaceCar     |
 | Action space      | Dict        |
 | State space       | Dict        |
 
@@ -19,13 +19,21 @@
 
 | Constant     | Type             |  Desc                                               |
 |:-------------|:-----------------|:----------------------------------------------------|
-| GRAVITY_MAG  | float32          |  Force of gravity acting down                       |
-| FORCE_MAG    | float32          |  Force applied to the side of the cart              |
-| DEPTH        | float32          |  depth of the valley                                |
-| MIN_POS      | float32          |  min position of cart                               |
-| MAX_POS      | float32          |  max position of cart                               |
-| MAX_VEL      | float32          |  max velocity of cart                               |
-| GOAL_MIN     | float32          |  desired x position of cart                         |
+| X1(b)        | float32          |  boundary is the line segment (X1, Y1) -> (X2, Y2)  |
+| Y1(b)        | float32          |  boundary is the line segment (X1, Y1) -> (X2, Y2)  |
+| X2(b)        | float32          |  boundary is the line segment (X1, Y1) -> (X2, Y2)  |
+| Y2(b)        | float32          |  boundary is the line segment (X1, Y1) -> (X2, Y2)  |
+| X0           | float32          |  starting x position of car |
+| Y0           | float32          |  starting y position of car   |
+| GX           | float32          |  x center of goal region       |
+| GY           | float32          |  y center of goal region                            |
+| RADIUS      | float32          |  radius of goal region                               |
+| COST      | float32          |  cost of fuel, proportional to force                               |
+| GOAL_REWARD      | float32          |  reward upon reaching the goal region                               |
+| MAX-F      | float32          |  maximum force in each direction                               |
+| MASS      | float32          |  mass of the car                               |
+| DT      | float32          |  rhow much time passes between epochs                               |
+
 
 
 All of these can be read from the RDDLEnv interface and from the RDDL files.
@@ -36,13 +44,11 @@ There is a single action taking {0, 1, 2} values, indicating if the cart should 
 
 | Action               | Type             |  Desc                                                  |
 |:---------------------|:-----------------|:-------------------------------------------------------|
-| action               | Discrete(3)      |  whether to accelerate left, none or right             |
+| fx               | BOX(1, -MAX-F, MAX-F, float32)      |  x force component applied to the car             |
+| fy               | BOX(1, -MAX-F, MAX-F, float32)      |  y force component applied to the car             |
 
-If action is 0 then the cart is pushed to the left with FORCE_MAG force \
-If action is 1 then no force is acting on the cart \
-If action is 2 then the cart is pushed to the right with FORCE_MAG force 
 
-- FORCE_MAG is available from the RDDLEnv interface and in the RDDL domain and instance.
+- MAX-F is available from the RDDLEnv interface and in the RDDL domain and instance.
 
 ## State Space
 
@@ -51,10 +57,12 @@ The location and harvesting regions of the minearls are not part of the state, b
 
 | State             | Type                                   |  Desc                         |
 |:------------------|:---------------------------------------|:------------------------------|
-| pos               | Box(1, MIN_POS, MAX_POS, float32)      |  Cart position                |
-| vel               | Box(1, -MAX_VEL, MAX_VEL, float32)     |  Cart velocity                |
+| x               | Box(1, -inf, inf, float32)      |  x position of car                |
+| y               | Box(1, -inf, inf, float32)     |  y position of car                |
+| vx               | Box(1, inf, inf, float32)      |  c velocity of car                |
+| vy               | Box(1, -inf, inf, float32)     |  y velocity of car                |
 
-- MIN_POS, MAX_POS and MAX_VEL are available from the RDDLEnv interface and in the RDDL domain and instance.
+
 
 ## Rewards
 
