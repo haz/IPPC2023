@@ -7,7 +7,7 @@ RDDL is intended to compactly support the representation of a wide range of rela
 # Getting started with RDDL
 
 The following tutorial covers RDDL basics and how to run it in pyRDDLGym:
-- [New pyRDDLGym RDDL tutorial](pyrddlgym_rddl_tutorial.html)
+- [pyRDDLGym RDDL tutorial](pyrddlgym_rddl_tutorial.html)
 
 
 For those who wish to learn RDDL at a later time, it is possible to just skip ahead for the next section, without knowing RDDL (and use the existing environemnts), pyRDDLGym is a fully gym compatible simulator, and can be treated as such, with the knowledge that the environments are not written in python but in RDDL.
@@ -46,30 +46,71 @@ Coming soon!
 ## Status 
 pyRDDLSim implements a large subset of the full RDDL capabilities, with additional new capabilities not originaly present in RDDL.
 
-The things not included with the current distribution of pyRDDLSim are the following:
--  No enums.
--  State-action-constrains is deprecated in favor of state-invariants and action-preconditions
--  Action-preconditions are not checked during simulations and should be enforced by the cpfs directly. Only actions-preconditions of the form `action <= BOUND` and `action >= BOUND` are parsed for the benefit of gym spaces definitions.
--  Observations, as the 2023 competition is fully observable, observations are not supported at this stage, and the state is accessed directly.
+What lised bellow is a list of what we currently do not support:
+* state-action-constraints -- deprecated in favor of state-invariants and action-preconditions (RDDL2.0).
+* action-preconditions are not enforced by the environment, and should be incorporated into the cpfs definitions.
+* action-preconditions of structure of `action <= BOUND` and `action >= BOUND`
+where BOUND is deterministic-function (can be of constants or non-fluents),
+are supported for the porpuse of gym spaces definitions.
+* General action-preconditions can still be specified in the rddl file for the benefit of reasoning in planners.
+* enums
 
-New capabilities over the original RDDL:
--  Leveling is available but not required anymore, pyRDDLSim can reason the dependencies and thus the level arguments of derived-fluents and interm-fluents can be omitted.
--  Terminal states. it is possible not to define terminal state, where reached the simulation terminates. In our view goals that should end the simulations should also treated as terminal states.
+We have extended the RDDL language and also support the following:
+* Automatic reasoning of levels. Levels are no longer required (and ignored by the infrastructure).
+* Terminal states can now be explicitly defined. The termination block has been added to the language.
 
+All other features of RDDL are supported according to the language definition.
 
 ## Getting started
-The pyRDDLGym infrastructure is available for cloning: `https://github.com/ataitler/pyRDDLGym.git`
+There are two options at the moment to obtain the pyRDDLGym infrstructure
+1. Pip installation `pip install pyRDDLGym` \
+In order to avoid any package conflicts we recommand using a virtual environment:
+```bash
+conda create -n rddl python=3.7
+conda activate rddl
+pip install pyrddlgym
+```
+2. Cloingig directly from Github `https://github.com/ataitler/pyRDDLGym.git`
 
-Read the [Readme page](https://github.com/ataitler/pyRDDLGym) for information on the framework contents, requirements, examples, and more.
+
+Please refer to the [README page](https://github.com/ataitler/pyRDDLGym) for information on the framework contents, requirements, examples, and more.
 
 ## Basic usage
 
 ### Initializing Environments
 Initializing environments is very easy in pyRDDLGym and can be done via: 
 ```python
-from Env import RDDLEnv as RDDLEnv
+from pyRDDLGym import RDDLEnv
 myEnv = RDDLEnv.RDDLEnv(domain="domain.rddl", instance='instance.rddl')
 ```
+where `domain.rddl` and `instance.rddl` are rddl files of your choosing.
+
+### Built in environments
+puRDDLGym is shiped with 12 environments designed completly in RDDL. The RDDL files are part of the distribution and can be accessed.
+In order to use the built in environments and keep the api of the RDDLEnv standard we supply an ExampleManager class:
+```python
+from pyRDDLGym import ExampleManager
+ExampleManager.ListExamples()
+```
+The `ListExample()` static function lists all the example environments in pyRDDLGym
+Then in order to retrive the informaiton of a specific environment:
+```python
+EnvInfo = ExampleManager.GetEnvInfo(ENV)
+```
+Setting up an environment at the point is just
+```python
+myEnv = RDDLEnv.RDDLEnv(domain=EnvInfo.get_domain(), instance=EnvInfo.get_instance(0))
+```
+Where the argument of the method `get_instance(<num>)` is the ID number of the instance (0 in this case).
+Listing all the available instances of the problem is accessed via
+```python
+EnvInfo.list_instances()
+```
+Last, setting up the dedicated visualizer for the example is done via
+```python
+myEnv.set_visualizer(EnvInfo.get_visualizer())
+```
+
 
 ### Interacting with the Environment
 pyRDDLGym is build on Gym as so implements the classic “agent-environment loop”. 
