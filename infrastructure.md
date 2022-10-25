@@ -40,7 +40,7 @@ RDDL is out there since 2010, with a JAVA simulator and an excellent tutorial, e
 pyRDDLSim is a generic autogeneration simulator from RDDL files to OpenAI Gym environments.
 
 ## Paper 
-Coming soon!
+Coming soon! \
 Our paper is currently in final stages of writing.
 <!-- Please see our paper describing the design decisions and implementation details behind pyRDDLGym. -->
 
