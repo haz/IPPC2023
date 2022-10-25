@@ -231,8 +231,8 @@ The termination block is intended to specify terminal states in the MDP, when re
 ```python
 termination {
 	Terminal_condition1;
-      Terminal_condition2;
-      ...
+	Terminal_condition2;
+	...
 };
 ```
 where `Terminal_conditions#` are boolean formulas. The termination decision is a disjunction of all the conditions in the block (termination if at least on is True).
