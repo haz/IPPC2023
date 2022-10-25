@@ -37,5 +37,5 @@ which includes a description of the RDDL modeling language as well as the Python
 
 If you have any questions about the competition or participation, please do not hesitate to reach out to us.
 
-Ayal Taitler and Scott Sanner (University of Toronto)
+Ayal Taitler and Scott Sanner (University of Toronto) \
 ippc2023-rddl@googlegroups.com
