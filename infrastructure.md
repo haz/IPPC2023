@@ -98,6 +98,7 @@ Then in order to retrive the informaiton of a specific environment:
 ```python
 EnvInfo = ExampleManager.GetEnvInfo(ENV)
 ```
+Where ENV is a string name of the desired example. \
 Setting up an environment at the point is just
 ```python
 myEnv = RDDLEnv.RDDLEnv(domain=EnvInfo.get_domain(), instance=EnvInfo.get_instance(0))
@@ -127,22 +128,32 @@ from Policies.Agents import RandomAgent
 agent = RandomAgent(action_space=myEnv.action_space, num_actions=myEnv.NumConcurrentActions)
 ```
 
-
 Let’s see what a complete the agent-environment loop looks like in pyRDDLGym.
-This example will run the instance `instance.rddl` of the problem specified in the file `domain.rddl`.
+This example will run the Example `MarsRover`
 The loop will run for the amount of time steps specified in the environment's `horizon` field. If the env.render() function will be used we will also see a window pop up rendering the environment
 ```python
-from Env import RDDLEnv as RDDLEnv
-from Policies.Agents import RandomAgent
+from pyRDDLGym import RDDLEnv
+from pyRDDLGym import ExampleManager
+from pyRDDLGym.Policies.Agents import RandomAgent
 
-myEnv = RDDLEnv.RDDLEnv(domain='domain.rddl', instance='instance.rddl')
+# get the environment info
+EnvInfo = ExampleManager.GetEnvInfo('MarsRover')
+
+# set up the environment class, choose instance 0 because every example has at least one example instance
+myEnv = RDDLEnv.RDDLEnv(domain=EnvInfo.get_domain(), instance=EnvInfo.get_instance(0))
+# set up the environment visualizer
+myEnv.set_visualizer(EnvInfo.get_visualizer())
+
+# set up an aget
 agent = RandomAgent(action_space=myEnv.action_space, num_actions=myEnv.NumConcurrentActions)
 
 total_reward = 0
 state = myEnv.reset()
 for _ in range(myEnv.horizon):
+      myEnv.render()
       next_state, reward, done, info = myEnv.step(agent.sample_action())
       total_reward += reward
+      state = next_state
 myEnv.close()
 ```
 
@@ -214,6 +225,8 @@ RDDL allows for the constants of the problem instead of being hardcoded, to be s
 
 While these constants are not available through the state of the problem, it is possible to access them through gym (or directly through the RDDL description) with a dedicated API: `env.non_fluents`. The non_fluents property returns a python dictionary where the keys are the grounded non-fluents and the values are the appropriate values. 
 
+### Termination
+
 
 ### Visualization
 
@@ -221,18 +234,34 @@ pyRDDLGym visualization is just like regular Gym. Users can visualize the curren
 
 Replacing the built is TextViz is simple as calling the environment method `env.set_visualizer(viz)` with `viz` as the desired visualization object.
 ```python
-from Env import RDDLEnv as RDDLEnv
-from Visualizer.MountainCarViz import MountainCarVisualizer
+from pyRDDLGym import RDDLEnv
+from pyRDDLGym import ExampleManager
 
-myEnv = RDDLEnv.RDDLEnv(domain='MountainCar\domain.rddl', 
-                        instance='MountainCar\instance0.rddl')
-myEnv.set_visualizer(MountainCarVisualizer)
+EnvInfo = ExampleManager.GetEnvInfo('MarsRover')
+myEnv = RDDLEnv.RDDLEnv(domain=EnvInfo.get_domain(), instance=EnvInfo.get_instance(0))
+
+# set up the environment visualizer
+myEnv.set_visualizer(EnvInfo.get_visualizer())
 ```
-In order to build custom visualiztions (for new user defined domains), one just need to inherit the class `Visualizer.StateViz.StateViz()` and return in the `visualizer.render()` method a PIL image for the gym to render to the screen.
+In order to build custom visualiztions (for new user defined domains), one just need to inherit the class `Visualizer.StateViz.StateViz()` and return in the `visualizer.render()` method a PIL image for the gym to render to the screen. The environment initilization will look something like that:
+```
+```python
+from pyRDDLGym import RDDLEnv
+from pyRDDLGym.Visualizer.StateViz import StateViz
+
+class MyDomainViz(StateViz)
+# here goes the visualization implementation
+
+
+myEnv = RDDLEnv.RDDLEnv(domain='myDomain.rddl', instance='myInstance.rddl')
+
+# set up the environment visualizer
+myEnv.set_visualizer(MyDomainViz)
+```
 
 ### Custom user defined domains
 
-Writing a new user defined domains is as easy as writing a few lines of text in a mathematical fashion!
+Writing new user defined domains is as easy as writing a few lines of text in a mathematical fashion!
 All is required is to specify the lifted constants, variables (all are refered as fluents in RDDL), behavior/dynamic of the problem and generating an instance with the actual objects and initial state in RDDL - and pyRDDLGym will do the rest.\
 For more information about how to create new domains in RDDL please see the *RDDL tutorial* at the top of this page.
 
