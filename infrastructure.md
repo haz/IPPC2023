@@ -154,6 +154,8 @@ for _ in range(myEnv.horizon):
       next_state, reward, done, info = myEnv.step(agent.sample_action())
       total_reward += reward
       state = next_state
+      if done:
+            break
 myEnv.close()
 ```
 
