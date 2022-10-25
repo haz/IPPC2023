@@ -1,7 +1,4 @@
-<!--<p style="font-size:30px;text-align:center"><b>Welcome to the 2023 International</b></p>
-<p style="font-size:30px;text-align:center"><b>Probabilistic Planning Competition</b></p>-->
 <p style="font-size:30px;text-align:center;line-height:100%"><b>Welcome to the International Planning Competition 2023: Probabilistic and Reinforcement Learning Track</b></p>
-<!--<p style="font-size:30px;text-align:center"><b>Probabilistic and Reinforcement Learning Track</b></p>-->
 
 
 The International Probabilistic Planning Competition is organized in the context of the International Conference on Planning and Scheduling (ICAPS). It empirically evaluates state-of-the-art planning systems on a number of benchmark problems. The goals of the IPC are to promote planning research, highlight challenges in the planning community and provide new and interesting problems as benchmarks for future research.
@@ -132,12 +129,6 @@ Past compeition were entirely discrete and as the focus of this year is continou
 ## Evaluation
 The exact details of the evaluation process are still in discussions (in order to be able to accomodate planing and learning approaches), but the general lines will follow the evaluation of the past [IPPC 2011](http://users.cecs.anu.edu.au/~ssanner/IPPC_2011/index.html) competition. 
 
-In addition we intend to make the following changes to the 2011 evaluation (subject to community discussions)
-1. Per-instance time limits instead of an overall 24 hour time limit.
-2. Competitor can do as many simulations as it wants before it initiates the final evaluation of 30 trials.
-3. We're considering using strong manual baseline policies for max normalization (hence scores will not necessarily be in [0,1]) <!-- to deal with the issues raised in Jendrik's paper. -->
-
-
 Domains (note numbers might change this year)
 - 8 domains
 - 10 instances per domain
@@ -175,7 +166,10 @@ Procedure
         - The maximum avg-norm-score for any competing planner is 1.
         - Agents will be ranked by their avg-norm-score.
 
-
+In addition we intend to make the following changes to the 2011 evaluation (subject to community discussions)
+1. Per-instance time limits instead of an overall 24 hour time limit.
+2. Competitor can do as many simulations as it wants before it initiates the final evaluation of 30 trials.
+3. We're considering using strong manual baseline policies for max normalization (hence scores will not necessarily be in [0,1]) <!-- to deal with the issues raised in Jendrik's paper. -->
 
 ## Registration
 At this point just join the google group (see link at the bottom) and announce your interest to compete in a post that includes your tentative team name, organization, and team members.
