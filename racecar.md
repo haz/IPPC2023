@@ -14,6 +14,7 @@
 
 ## Description
 
+A race car is required to reach a target from an initial position. The race car is described as a kinematic 2nd order model. The race track is bounded with lines representing the track bounds, hitting one of the bounds is considered a failure and the episode is terminated. The shape of the track is represented by a series of point conected with lines.
 
 ## Constants (non-fluents)
 
@@ -40,7 +41,7 @@ All of these can be read from the RDDLEnv interface and from the RDDL files.
 
 ## Action Space
 
-There is a single action taking {0, 1, 2} values, indicating if the cart should be pushed to the left or to the right or not at all.
+The actioins are the force (or acceleartion in a kinematic setting) applied to each movement axis of the race car.
 
 | Action               | Type             |  Desc                                                  |
 |:---------------------|:-----------------|:-------------------------------------------------------|
@@ -52,8 +53,7 @@ There is a single action taking {0, 1, 2} values, indicating if the cart should 
 
 ## State Space
 
-The state space represents the positions and velocities of all the drones in the problem, as well as the state of all the minearls in the domain.
-The location and harvesting regions of the minearls are not part of the state, but are available through the non fluents in the problem.
+The state space is the positions and velocities of the race car in both axis.
 
 | State             | Type                                   |  Desc                         |
 |:------------------|:---------------------------------------|:------------------------------|
@@ -66,8 +66,7 @@ The location and harvesting regions of the minearls are not part of the state, b
 
 ## Rewards
 
-
-## References
+The reward of this domain is the minus the cost of using the engines (min power cost) plus the goal reward if the agent reaches the goal
 
 
 <hr>
