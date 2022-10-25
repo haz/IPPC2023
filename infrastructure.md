@@ -55,7 +55,7 @@ New capabilities over the original RDDL:
 ## Getting started
 The pyRDDLGym infrastructure is available for cloning: `https://github.com/ataitler/pyRDDLGym.git`
 
-Read the [Readme page](https://github.com/ataitler/pyRDDLGym/README) for information on the framework contents, requirements, examples, and more.
+Read the [Readme page](https://github.com/ataitler/pyRDDLGym) for information on the framework contents, requirements, examples, and more.
 
 ## Basic usage
 
