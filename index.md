@@ -19,6 +19,9 @@ Please forward the following calls to all interested parties:
   </a>
 </div>
 
+We invite interested competitors to join the competition discussion:
+
+   [ippc2023-rddl@googlegroups.com](https://groups.google.com/g/ippc2023-rddl)
 
 ## Preliminary Schedule
 
