@@ -41,6 +41,7 @@ pyRDDLSim is a generic autogeneration simulator from RDDL files to OpenAI Gym en
 
 ## Paper 
 Coming soon!
+Our paper is currently in final stages of writing.
 <!-- Please see our paper describing the design decisions and implementation details behind pyRDDLGym. -->
 
 ## Status 
