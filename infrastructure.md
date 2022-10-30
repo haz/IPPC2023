@@ -47,7 +47,7 @@ Our paper is currently in final stages of writing.
 ## Status 
 pyRDDLSim implements a large subset of the full RDDL capabilities, with additional new capabilities not originaly present in RDDL.
 
-What lised bellow is a list of what we currently do not support:
+What listed bellow is a list of what we currently do not support:
 * state-action-constraints -- deprecated in favor of state-invariants and action-preconditions (RDDL2.0).
 * action-preconditions are not enforced by the environment, and should be incorporated into the cpfs definitions.
 * action-preconditions of structure of `action <= BOUND` and `action >= BOUND`
@@ -71,7 +71,7 @@ conda create -n rddl python=3.7
 conda activate rddl
 pip install pyrddlgym
 ```
-2. Cloingig directly from Github `https://github.com/ataitler/pyRDDLGym.git`
+2. Cloning directly from Github `https://github.com/ataitler/pyRDDLGym.git`
 
 
 Please refer to the [README page](https://github.com/ataitler/pyRDDLGym) for information on the framework contents, requirements, examples, and more.
