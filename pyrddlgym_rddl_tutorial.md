@@ -450,10 +450,9 @@ The above code only generate a single image. An example of wildfire animation is
 | Red Triangle      | Burning     |
 
 ## 3.0 Appendix (Wilfire Domain)
-[wildfire domain link](https://github.com/ataitler/pyRDDLGym/blob/main/Competition/Wildfire/domain.rddl)
+[wildfire domain link](https://github.com/ataitler/pyRDDLGym/blob/main/pyRDDLGym/Examples/Wildfire/domain.rddl)
 
 ## 3.1 Appendix (Wildfire Instance)
-[wildfire instance link](https://github.com/ataitler/pyRDDLGym/blob/main/Competition/Wildfire/instance0.rddl)
-
+[wildfire instance link](https://github.com/ataitler/pyRDDLGym/blob/main/pyRDDLGym/Examples/Wildfire/instance0.rddl)
 
 This tutorial was done in collaboration with Bayaan Shalaby, John Zhou, Jason Zhou, Ayal Taitler, Xiaotian Liu and Scott Sanner.
