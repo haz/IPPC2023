@@ -9,7 +9,7 @@
 
 |       |      |
 |:------------------|:------------|
-| Import folder     | Power_gen  |
+| Example name     | PowerGeneration  |
 | Action space      | Dict        |
 | State space       | Dict        |
 
@@ -64,7 +64,7 @@ The reward function is defined as
 cost of supply per plant, demand income, demand exceeds supply penalty, steady-state penalties
 
 ## References
-
+- [Power unit commitment example](https://github.com/ataitler/pyRDDLGym/tree/main/pyRDDLGym/Examples/Power_gen)
 - http://en.wikipedia.org/wiki/Power_system_simulation 
 
 <hr>
