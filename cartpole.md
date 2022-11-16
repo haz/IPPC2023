@@ -48,6 +48,9 @@ There is a single action taking {0,1} values, indicating if the cart should be p
 If force_side is 0 then the cart is pushed to the left with FORCE_MAG force \
 If force_side is 1 then the cart is pushed to the right with FORCE_MAG force 
 
+- FORCE_MAG is available from the RDDLEnv interface and in the RDDL domain and instance.
+
+
 ### Continuous version
 | Action               | Type             |  Desc                                                  |
 |:---------------------|:-----------------|:-------------------------------------------------------|
@@ -57,7 +60,6 @@ FORCE-MAX is available from the RDDLEnv interface and in the RDDL domain and ins
 
 **Note**: The velocity that is reduced or increased by the applied force is not fixed and it depends on the angle the pole is pointing. The center of gravity of the pole varies the amount of energy needed to move the cart underneath it
 
-- FORCE_MAG is available from the RDDLEnv interface and in the RDDL domain and instance.
 
 ## State Space
 
