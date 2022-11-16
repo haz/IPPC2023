@@ -8,7 +8,7 @@
 
 |       |      |
 |:------------------|:------------|
-| Import folder     | MountainCar |
+| Example name     | MountainCar |
 | Action space      | Dict        |
 | State space       | Dict        |
 
@@ -65,6 +65,7 @@ The goal is to reach the flag placed on top of the right hill as quickly as poss
 
 
 ## References
+- [MMountain car example](https://github.com/ataitler/pyRDDLGym/tree/main/pyRDDLGym/Examples/MountainCar)
 - Moore, A. W. (1990). Efficient memory-based learning for robot control.
 
 
