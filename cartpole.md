@@ -56,7 +56,7 @@ If force_side is 1 then the cart is pushed to the right with FORCE_MAG force
 |:---------------------|:-----------------|:-------------------------------------------------------|
 | force_side           | Box(1, -FORCE-MAX, FORCE-MAX)     | force applied to the side of the cart |
 
-FORCE-MAX is available from the RDDLEnv interface and in the RDDL domain and instance.
+- FORCE-MAX is available from the RDDLEnv interface and in the RDDL domain and instance.
 
 **Note**: The velocity that is reduced or increased by the applied force is not fixed and it depends on the angle the pole is pointing. The center of gravity of the pole varies the amount of energy needed to move the cart underneath it
 
