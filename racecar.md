@@ -8,7 +8,7 @@
 
 |       |      |
 |:------------------|:------------|
-| Import folder     | RaceCar     |
+| Example name     | RaceCar     |
 | Action space      | Dict        |
 | State space       | Dict        |
 
@@ -68,6 +68,8 @@ The state space is the positions and velocities of the race car in both axis.
 
 The reward of this domain is the minus the cost of using the engines (min power cost) plus the goal reward if the agent reaches the goal
 
+## References
+- [Race car example](https://github.com/ataitler/pyRDDLGym/tree/main/pyRDDLGym/Examples/Racecar)
 
 <hr>
 [Back to main page](index.md)
