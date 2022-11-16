@@ -8,7 +8,7 @@
 
 |       |      |
 |:------------------|:------------|
-| Import folder     | Elevator  |
+| Example name     | Elevators  |
 | Action space      | Dict        |
 | State space       | Dict        |
 
@@ -86,7 +86,8 @@ where,
 - rew: REWARD-DELIVERED
 - I_bottom(e): 1 if e is at the bottom floor; otherwise, 0
 
-<!--## References -->
+## References
+- [Elevators example](https://github.com/ataitler/pyRDDLGym/tree/main/pyRDDLGym/Examples/Elevator)
 
 
 <hr>
