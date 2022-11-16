@@ -8,7 +8,7 @@
 
 |       |      |
 |:------------------|:------------|
-| Import folder     | Mars_rover  |
+| Example name      | MarsRover   |
 | Action space      | Dict        |
 | State space       | Dict        |
 
@@ -70,7 +70,7 @@ where,
 
 
 ## References
-
+- [Mars rover example](https://github.com/ataitler/pyRDDLGym/tree/main/pyRDDLGym/Examples/Mars_rover)
 
 <hr>
 [Back to main page](index.md)
