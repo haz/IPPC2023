@@ -50,7 +50,11 @@ All of these can be read from the RDDLEnv interface and from the RDDL files.
 
 
 ## Rewards
-
+The reward at each steps is a sum of four components
+- cost of executing put-out action
+- cost of executing cut-out action
+- penalty for every non-target cell that is currently burning
+- penaly for every target cell that is burning OR has been put out
 
 ## References
 - [Wildfire example](https://github.com/ataitler/pyRDDLGym/tree/main/pyRDDLGym/Examples/Wildfire)
