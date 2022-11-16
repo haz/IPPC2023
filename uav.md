@@ -9,11 +9,11 @@
 
 |       |      |
 |:------------------|:------------|
-| Import folder     | drone_**      |
+| Example name     | UAV **      |
 | Action space      | Dict        |
 | State space       | Dict        |
 
-** stand for con, dis, mix.
+** stand for continuous, discrete, mixed.
 
 
 ## Description
@@ -109,6 +109,7 @@ The sum of the norm-2 distance of all the *controllable* drones.
 
 ## References
 
+- [UAV examples](https://github.com/ataitler/pyRDDLGym/tree/main/pyRDDLGym/Examples/UAV)
 - David G. Hull. 2007. Fundamentals of Airplane Flight Mechanics (2nd ed.).
 Springer.
 
