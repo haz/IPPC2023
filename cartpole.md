@@ -8,10 +8,11 @@
 
 |       |      |
 |:------------------|:------------|
-| Import folder     | Cartpole    |
+| Example name      | Cartpole ** |
 | Action space      | Dict        |
 | State space       | Dict        |
 
+** stand for discrete, continuous.
 
 ## Description
 This environment corresponds to the version of the cart-pole problem described by Barto, Sutton, and Anderson 
@@ -24,7 +25,8 @@ The pendulum is placed upright on the cart and the goal is to balance the pole b
 | Constant     | Type             |  Desc                                               |
 |:-------------|:-----------------|:----------------------------------------------------|
 | GRAVITY      | float32          |  Force of gravity acting down                       |
-| FORCE_MAG    | float32          |  Force applied to the side of the cart              |
+| FORCE_MAG    | float32          |  Force applied to the side of the cart (discrete version)             |
+| FORCE_MAX    | float32          |  Maximum force applied to the side of the cart (continuous version)             |
 | CART_MASS    | float32          |  Mass of the cart                                   |
 | POLE_MASS    | float32          |  Mass of the pole                                   |
 | POLE_LEN     | float32          |  Half of the pole length                            |
@@ -36,6 +38,7 @@ All of these can be read from the RDDLEnv interface and from the RDDL files.
 
 ## Action Space
 
+### Discrete version
 There is a single action taking {0,1} values, indicating if the cart should be pushed to the left or to the right.
 
 | Action               | Type             |  Desc                                                  |
@@ -44,6 +47,13 @@ There is a single action taking {0,1} values, indicating if the cart should be p
 
 If force_side is 0 then the cart is pushed to the left with FORCE_MAG force \
 If force_side is 1 then the cart is pushed to the right with FORCE_MAG force 
+
+### Continuous version
+| Action               | Type             |  Desc                                                  |
+|:---------------------|:-----------------|:-------------------------------------------------------|
+| force_side           | Box(1, -FORCE-MAX, FORCE-MAX)     | force applied to the side of the cart |
+
+FORCE-MAX is available from the RDDLEnv interface and in the RDDL domain and instance.
 
 **Note**: The velocity that is reduced or increased by the applied force is not fixed and it depends on the angle the pole is pointing. The center of gravity of the pole varies the amount of energy needed to move the cart underneath it
 
@@ -71,6 +81,7 @@ Since the goal is to keep the pole upright for as long as possible, a reward of 
 
 
 ## References
+- [Cart-pole examples](https://github.com/ataitler/pyRDDLGym/tree/main/pyRDDLGym/Examples/CartPole)
 - A. G. Barto, R. S. Sutton and C. W. Anderson, "Neuronlike adaptive elements that can solve difficult learning control problems," 
 - in IEEE Transactions on Systems, Man, and Cybernetics, vol. SMC-13, no. 5, pp. 834-846.
 
