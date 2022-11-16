@@ -1,4 +1,4 @@
-<p style="font-size:25px;text-align:left"><b>Recommendation Systems</b></p>
+<p style="font-size:25px;text-align:left"><b>Recommender System</b></p>
 
 <div style="width:100%;text-align:center;">
   <a href="images/recsys_loop.gif">
@@ -8,7 +8,7 @@
 
 |       |      |
 |:------------------|:------------|
-| Import folder     | recsim.     |
+| Example name     | RecSim     |
 | Action space      | Dict        |
 | State space       | Dict        |
 
@@ -45,7 +45,7 @@ The state is compriesed of the satisfaction level of the providers and consumers
 The reward is a sum over all consumers statisfaction levels.
 
 ## References
-- 
+- [Recommender system example](https://github.com/ataitler/pyRDDLGym/tree/main/pyRDDLGym/Examples/Recsim)
 
 <hr>
 [Back to main page](index.md)
