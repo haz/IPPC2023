@@ -263,7 +263,7 @@ The state-action-constraints block concludes the domain definition. It asserts l
 96    state-action-constraints {
 97
 98        // Can only put-out if the cell is currently burning
-99        forall_{?x : x-pos, ?y : y-os} [put-out(?x,?y) => burning(?x,?y)];
+99        forall_{?x : x-pos, ?y : y-pos} [put-out(?x,?y) => burning(?x,?y)];
 100
 101        // Can only cut-out if the cell is not already out of fuel
 102        forall_{?x : x-pos, ?y : y-pos} [cut-out(?x,?y) => ~out-of-fuel(?x,?y)];
