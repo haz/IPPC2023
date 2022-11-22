@@ -21,30 +21,30 @@ Using RDDL, we can easily model state transitions in this stochastic process for
 
 
 ```
-cpfs {   
+cpfs {
 
- // Specify the probability that a cell is burning in the next time step (') 
+ // Specify the probability that a cell is burning in the next time step (')
 
-    burning'(?x, ?y) = 
+    burning'(?x, ?y) =
 
         // Stops burning if put out or has no fuel
 
         if ( put-out(?x, ?y) | out-of-fuel(?x,?y)) then false
 
-        // Ignition of new fire can only occur if the cell is not (~) out-of-fuel 
+        // Ignition of new fire can only occur if the cell is not (~) out-of-fuel
 
-        else if (~out-of-fuel(?x, ?y) ^ ~burning(?x, ?y)) 
+        else if (~out-of-fuel(?x, ?y) ^ ~burning(?x, ?y))
 
             // Targets can only begin to burn if at least one neighbour is burning
             then [if (TARGET(?x, ?y) ^ ~exists_{?x2: x-pos, ?y2: y-pos}(NEIGHBOR(?x, ?y, ?x2, ?y2) ^ burning(?x2, ?y2))) then false
 
-            // Else, use probability function to determine if a cell begins to burn 
+            // Else, use probability function to determine if a cell begins to burn
             // (when summed, logic expressions take value true=1, false=0)
             else Bernoulli( 1.0 / (1.0 + exp[4.5 - (sum_{?x2: x-pos, ?y2: y-pos} (NEIGHBOR(?x, ?y, ?x2, ?y2) ^ burning(?x2, ?y2)))]))]
-     else burning(?x, ?y); // State persists     
+     else burning(?x, ?y); // State persists
 
     // Specify the probability that a cell is out of fuel in the next time step (')
-    out-of-fuel'(?x, ?y) = out-of-fuel(?x, ?y) | burning(?x,?y) | (~TARGET(?x, ?y) ^ cut-out(?x, ?y));      
+    out-of-fuel'(?x, ?y) = out-of-fuel(?x, ?y) | burning(?x,?y) | (~TARGET(?x, ?y) ^ cut-out(?x, ?y));
 
  };
 
@@ -56,31 +56,31 @@ While the above transition specification may seem complex, imagine writing down 
 
 RDDL vs. PPDDL remark: While RDDL can express all PPDDL domains, but not vice versa as noted for points (1)-(3) above, there are some domains where PPDDL notation is more compact and convenient.  See the comments in the RDDL version of the Triangle Tireworld domain for discussion of one particular example where this is true.
 
-We have specified the state transition function above, but we have not specified the reward that will guide our choice of actions.  In the following, we define an objective function to specify the immediate reward at every time step. Costs are incurred for performing both the put-out and cut-out actions. Additionally, penalties for every target and non-target cell burning at every time-step are also incurred. Thus, our ultimate objective is the minimize the total costs and penalties incurred. This can be specified using RDDL as, 
+We have specified the state transition function above, but we have not specified the reward that will guide our choice of actions.  In the following, we define an objective function to specify the immediate reward at every time step. Costs are incurred for performing both the put-out and cut-out actions. Additionally, penalties for every target and non-target cell burning at every time-step are also incurred. Thus, our ultimate objective is the minimize the total costs and penalties incurred. This can be specified using RDDL as,
 
 ```
-reward =  
+reward =
 
         // Pay a cost for every cell that is cut-out (constant COST-CUTOUT defined in full RDDL spec below)
-          [sum_{?x: x-pos, ?y: y-pos} [ COST-CUTOUT*cut-out(?x, ?y) ]] 
+          [sum_{?x: x-pos, ?y: y-pos} [ COST-CUTOUT*cut-out(?x, ?y) ]]
 
         // Pay a cost for every cell that is put-out (constant COST-PUTOUT defined in full RDDL spec below)
         + [sum_{?x: x-pos, ?y: y-pos} [ COST-PUTOUT*put-out(?x, ?y) ]]
 
         // Pay a cost for every target cell that is burnt (constant PENALTY-TARGET-BURN defined in full RDDL spec below)
         // NOTE: if a target is out-of-fuel, it was burnt so still penalize (since it could not have been cut-out)
-        + [sum_{?x: x-pos, ?y: y-pos} [ PENALTY-TARGET-BURN*[ (burning(?x, ?y) | out-of-fuel(?x, ?y)) ^ TARGET(?x, ?y) ]]] 
+        + [sum_{?x: x-pos, ?y: y-pos} [ PENALTY-TARGET-BURN*[ (burning(?x, ?y) | out-of-fuel(?x, ?y)) ^ TARGET(?x, ?y) ]]]
 
         // Pay a smaller cost for every non-target cell that is burnt (constant PENALTY-NONTARGET-BURN defined in full RDDL spec below)
         + [sum_{?x: x-pos, ?y: y-pos} [ PENALTY-NONTARGET-BURN*[ burning(?x, ?y) ^ ~TARGET(?x, ?y) ]]];
 ```
-These are the core components of RDDL in a nutshell!  For completeness, the remainder of this documentation will provide a detailed walk-through of the process of formulating, debugging, and optimizing the wildfire problem introduced above using RDDL.  Following this we will provide links for using the PROST planner to automatically plan for the best actions in the Wildfire domain given a starting state. 
+These are the core components of RDDL in a nutshell!  For completeness, the remainder of this documentation will provide a detailed walk-through of the process of formulating, debugging, and optimizing the wildfire problem introduced above using RDDL.
 
 ## 2.0 Wildfire Domain Full Tutorial
-This section will outline the full file structure and syntax required to model the wildfire problem. The reader is encouraged to refer to the RDDL language description page for more details on any of the various blocks, functions, or types used in this tutorial. This section will outline the full file structure and syntax required to model the wildfire problem. The reader is encouraged to refer to the RDDL language description page for more details on any of the various blocks, functions, or types used in this tutorial. 
+This section will outline the full file structure and syntax required to model the wildfire problem. The reader is encouraged to refer to the RDDL language description page for more details on any of the various blocks, functions, or types used in this tutorial. This section will outline the full file structure and syntax required to model the wildfire problem. The reader is encouraged to refer to the RDDL language description page for more details on any of the various blocks, functions, or types used in this tutorial.
 
 ## 2.1 Getting Set Up with RDDL
-Before we dive into dissecting this problem, the first course of action is to install and compile RDDL. 
+Before we dive into dissecting this problem, the first course of action is to install and compile RDDL.
 
 First, clone (or download the zip file and unzip) the pyRDDLGym GitHub repository found at https://github.com/ataitler/pyRDDLGym. Open a terminal in the pyRDDLGym directory, or ensure that your current working directory is pyRDDLGym. **Throughout the course of this tutorial, as well as during any future RDDL usage, ensure that you are always working within the pyRDDLGym directory.**
 
@@ -94,7 +94,8 @@ Alternatively you can install pyRDDLGym using pip:
 $ pip install pyRDDLGym
 ```
 PyRDDLGYm follows closely to the gym interfaces. Below is an example of running wildfire domain using an random agent.
-```
+
+```python
 from pyRDDLGym import RDDLEnv
 from pyRDDLGym import ExampleManager
 from pyRDDLGym.Policies.Agents import RandomAgent
@@ -123,25 +124,25 @@ for step in range(myEnv.horizon):
     if done:
         break
 
-print("episode ended with reward {}".format(total_reward))  
+print("episode ended with reward {}".format(total_reward))
 myEnv.close()
 ```
 
 
 ## 2.2 Problem Decomposition (Optional)
-This problem, like many other problems modelled using RDDL, is a Markov Decision Process (MDP).  Thus, before we begin to formulate this in RDDL, it is helpful to first decompose the problem into the components of an MDP. Each MDP consists of five components: states (S), actions (A), transition model (T), immediate reward (R), and discount factor (𝛾). 
+This problem, like many other problems modelled using RDDL, is a Markov Decision Process (MDP).  Thus, before we begin to formulate this in RDDL, it is helpful to first decompose the problem into the components of an MDP. Each MDP consists of five components: states (S), actions (A), transition model (T), immediate reward (R), and discount factor (𝛾).
 
-**States (S)**: is a summary of all available information needed in order to determine the next state. In this wildfire example, two states are required for each cell to assess the scenario, either a cell is burning, or it is out-of-fuel.  Both of them are of type boolean, True or False, taking arguments of the (x, y) coordinates of the cell.  In the MDP literature, representing the state with state variables is known as a factored MDP.  Note that the if we have a 10 X 10 grid, then we have 100 cells each represented by two boolean state variables, leading to a total of 2<sup>200</sup> possible states!  
+**States (S)**: is a summary of all available information needed in order to determine the next state. In this wildfire example, two states are required for each cell to assess the scenario, either a cell is burning, or it is out-of-fuel.  Both of them are of type boolean, True or False, taking arguments of the (x, y) coordinates of the cell.  In the MDP literature, representing the state with state variables is known as a factored MDP.  Note that the if we have a 10 X 10 grid, then we have 100 cells each represented by two boolean state variables, leading to a total of 2<sup>200</sup> possible states!
 
 RDDL notation remark: As a convention in notation, if the current state is S, the new state will be denoted by a prime/ apostrophe [’], being S’.
 
 **Actions (A)**: defines what can be done on a particular state. In this case, the firefighters can perform two actions, **put-out** or **cut-out**, at position **(x-pos, y-pos)**. Both of the actions are designed to be deterministic such that one action specifies and assures a certain transition to a new state. Put-out means to stop the fire at this location, thus when put-out action is performed, this location is no longer burning, **put-out(x,y)** = True **⇒burning’(x,y)** = False. Cut-out removes the combustible material (i.e. fuel) from the current cell to make it out of fuel, **put-out(x,y)** = True ⇒ **out-of-fuel’(x,y)** = True.
 
-**Transition Model (T)**: specifies the probability to enter a new state s' based on the current state(s) or when a stochastic action a is performed on the current state(s) s, P(s'\|s,a). In the Wildfire example, the probability of a certain cell to burn is defined by the probability function outlined in Section 1.0, varying based on the number of current neighbours on fire.  Note that we define the transition probability of each next state fluent (e.g., burning’(x,y) or out-of-fuel’(x,y)) as an independent probabilistic function of current state properties.  
+**Transition Model (T)**: specifies the probability to enter a new state s' based on the current state(s) or when a stochastic action a is performed on the current state(s) s, P(s'\|s,a). In the Wildfire example, the probability of a certain cell to burn is defined by the probability function outlined in Section 1.0, varying based on the number of current neighbours on fire.  Note that we define the transition probability of each next state fluent (e.g., burning’(x,y) or out-of-fuel’(x,y)) as an independent probabilistic function of current state properties.
 
 RDDL correlated effects remark: One of the most common questions for RDDL is how to model state transitions where two or more fluents depend on a common probabilistic outcome (i.e., how do we model correlated effects)?  The quick answer is that one should use intermediate fluents to model a probabilistic outcome and then condition next state outcomes on this intermediate fluent (see the [RDDL language specification](http://users.cecs.anu.edu.au/~ssanner/IPPC_2011/RDDL.pdf) for more information and example usage of intermediate fluents).  The only current caveat of using intermediate fluents is that few existing RDDL planners support them, though this should change in the future.
 
-**Immediate Reward (R)**: is a real value obtained for being in a state s and/or performing an action a. In the example, each action has a corresponding cost and each cell burned has different penalties depending on whether or not it is a target cell. The cost of cutting out fuel is set to be -5, putting out a fire is -10, while the penalty of a non-target cell burned is -5 and the penalty for a target cell is set to be -100. 
+**Immediate Reward (R)**: is a real value obtained for being in a state s and/or performing an action a. In the example, each action has a corresponding cost and each cell burned has different penalties depending on whether or not it is a target cell. The cost of cutting out fuel is set to be -5, putting out a fire is -10, while the penalty of a non-target cell burned is -5 and the penalty for a target cell is set to be -100.
 
 **Discount Factor (𝛾): ∈ [0,1]** is used to evaluate the present value of future rewards from time step t. The present value of receiving future reward R after k+1 time steps is 𝛾<sup>k</sup>R. In this example, the default setting of 𝛾 is set to be 1, meaning there is no consideration of discount in valuation.
 
@@ -157,7 +158,7 @@ The domain block is subdivided into 5 blocks, which are each explained separatel
 The requirements block was not needed in this particular example. For more information about the requirements block, refer to the full RDDL language description.
 
 ### 2.3.2 types Block
-The declaration of new (non-enumerable) types within the types block is only needed when the domain is **parameterized**, meaning some fluents (i.e. state fluents, action fluents etc.) are in terms of user-defined objects. In this example, states and actions are described on a per cell basis (i.e. burning(x,y) state indicates whether a specified cell (x,y) is burning) which indicates a need to define types x-pos and y-pos to be used in the domain definition. 
+The declaration of new (non-enumerable) types within the types block is only needed when the domain is **parameterized**, meaning some fluents (i.e. state fluents, action fluents etc.) are in terms of user-defined objects. In this example, states and actions are described on a per cell basis (i.e. burning(x,y) state indicates whether a specified cell (x,y) is burning) which indicates a need to define types x-pos and y-pos to be used in the domain definition.
 
 ```
 39  types {
@@ -167,48 +168,48 @@ The declaration of new (non-enumerable) types within the types block is only nee
 ```
 
 ### 2.3.3 pvariables Block
-Now that relevant new types have been defined, we can define both the parameterized and non-parameterized fluents in the pvariables block. 
-``` 
+Now that relevant new types have been defined, we can define both the parameterized and non-parameterized fluents in the pvariables block.
+```
 44  pvariables {
 ```
-Typically, the first fluent type to be defined is the non-fluent type, which represent the variables that do not change at any time-step of the problem. In this example, the costs and penalties associated with performing actions and not attending to burning cells respectively are the same at any point in time, indicating that they are a real-valued non-fluent types. Note that these variables are not parameterized, as the costs and penalties are not with respect to each cell, but are just numerical constants that will be used to calculate reward.  
+Typically, the first fluent type to be defined is the non-fluent type, which represent the variables that do not change at any time-step of the problem. In this example, the costs and penalties associated with performing actions and not attending to burning cells respectively are the same at any point in time, indicating that they are a real-valued non-fluent types. Note that these variables are not parameterized, as the costs and penalties are not with respect to each cell, but are just numerical constants that will be used to calculate reward.
 
 ```
 46  // Action costs and penalties
 47  COST-UTOUT            : {non-fluent, real, default =   -5 }; // Cost to cut-out fuel from a cell
 48  COST-PUTOUT            : {non-fluent, real, default =  -10 }; // Cost to put-out a fire from a cell
-50  PENALTY-TARGET_BURN    : {non-fluent, real, default = -100 }; // Penalty for each target cell that is burning  
+50  PENALTY-TARGET_BURN    : {non-fluent, real, default = -100 }; // Penalty for each target cell that is burning
 51  PENALTY-NONTARGET_BURN : {non-fluent, real, default =   -5 }; // Penalty for each non-target cell that is burning
 ```
 
-Additionally, the configuration of the map, showcasing which cells are neighbours and which are not, does not change. Thus, a boolean valued non-fluent variable must be defined, that is in terms of two sets of cells (indicating this variable will be parameterized!) and stipulates whether or not those cells are neighbours (either true or false). 
+Additionally, the configuration of the map, showcasing which cells are neighbours and which are not, does not change. Thus, a boolean valued non-fluent variable must be defined, that is in terms of two sets of cells (indicating this variable will be parameterized!) and stipulates whether or not those cells are neighbours (either true or false).
 
 ```
 53  // Topology of the cells (can be any neighborhood topology, not necessarily rectangular)
 54  NEIGHBOR(x-pos, y-pos, x-pos, y-pos) : { non-fluent, bool, default = false };
 ```
-The final non-fluent variable to be defined is one that indicates whether or not (boolean) a certain cell is a target cell. It is clear that a school, for instance, will not suddenly change locations during the spread of a wildfire, which demonstrates that this variable is non-fluent in nature. 
+The final non-fluent variable to be defined is one that indicates whether or not (boolean) a certain cell is a target cell. It is clear that a school, for instance, will not suddenly change locations during the spread of a wildfire, which demonstrates that this variable is non-fluent in nature.
 ```
-// High value cells that should be protected from fire 
-56  // High value cells that should be protected from fire 
-57  TARGET(x-pos, y-pos) : {non-fluent, bool, default = false }; 
+// High value cells that should be protected from fire
+56  // High value cells that should be protected from fire
+57  TARGET(x-pos, y-pos) : {non-fluent, bool, default = false };
 ```
-Next, we define the state-fluent variables, which represent the state of each cell at any point in time. Note that since the state of a cell is susceptible to change, this cannot be a non-fluent variable. 
+Next, we define the state-fluent variables, which represent the state of each cell at any point in time. Note that since the state of a cell is susceptible to change, this cannot be a non-fluent variable.
 ```
 59  // State fluents
 60  burning(x-pos, y-pos)     : { state-fluent, bool, default = false }; // cell currently on fire
 61  out-of-fuel(x-pos, y-pos) : { state-fluent, bool, default = false }; // cell does not have fuel to burn (cut-out/already  burned)
 ```
-Finally, we define the action-fluent variables, which are the actions you can take, as the emergency manager. As specified in the problem description, the legal actions that can be taken are either putting out a fire or cutting out fuel from a certain cell. 
+Finally, we define the action-fluent variables, which are the actions you can take, as the emergency manager. As specified in the problem description, the legal actions that can be taken are either putting out a fire or cutting out fuel from a certain cell.
 ```
 63  // Action fluents
 64  put-out(x-pos, y-pos) : { action-fluent, bool, default = false }; //actions to put-out out the fire
 65  cut-out(x-pos, y-pos) : { action-fluent, bool, default = false };  // cut-out out the fuel
-66    
+66
 67  };
 ```
-### 2.3.4 cpfs Block 
-The cpfs block was defined in the introduction of this documentation. This block is only repeated here again for completeness. Additionally, we provide flow diagrams of each state transition with corresponding lines annotated should the reader have difficulty understanding the cpfs block. 
+### 2.3.4 cpfs Block
+The cpfs block was defined in the introduction of this documentation. This block is only repeated here again for completeness. Additionally, we provide flow diagrams of each state transition with corresponding lines annotated should the reader have difficulty understanding the cpfs block.
 
 In the following figures, Probability means the probability that a non-target cell begins to burn, shown as the equation in the first section. NB: Due to the nature of target cell, it is designed such that a target cell, if not having any neighbouring cell burning, will not start a fire on its own, or Probability(burning(x,y) \| target(x,y)) = 0.
 
@@ -225,8 +226,8 @@ In the following figures, Probability means the probability that a non-target ce
 
 ```
 69   cpfs {
-70   
-71 burning'(?x, ?y) = 
+70
+71 burning'(?x, ?y) =
 72  if ( put-out(?x, ?y) | out-of-fuel(?x,?y)) // Intervention to put out fire?
 73    then false
 74
@@ -235,20 +236,20 @@ In the following figures, Probability means the probability that a non-target ce
 77            then [if (TARGET(?x, ?y) ^ ~exists_{?x2: x-pos, ?y2: y-pos} (NEIGHBOR(?x, ?y, ?x2, ?y2) ^ burning(?x2, ?y2)))
 78                  then false
 79            else Bernoulli( 1.0 / (1.0 + exp[4.5 - (sum_{?x2: x-pos, ?y2: y-pos} (NEIGHBOR(?x, ?y, ?x2, ?y2) ^ burning(?x2, ?y2)))]))]
-80  
-81  else 
+80
+81  else
 82   burning(?x, ?y); // State persists
-83   
+83
 84  // Modification: only allow non-target cells to be cut-out (cannot remove fuel from targets, e.g., housing)
-85 out-of-fuel'(?x, ?y) = 
+85 out-of-fuel'(?x, ?y) =
 86    out-of-fuel(?x, ?y) | burning(?x,?y) | (~TARGET(?x, ?y) ^ cut-out(?x, ?y));
 87   };
 ```
 
 ### 2.3.5 reward
-The reward was defined in the introduction of this documentation. It is only repeated here for completeness 
-``` 
-89 reward = 
+The reward was defined in the introduction of this documentation. It is only repeated here for completeness
+```
+89 reward =
 90     [sum_{?x: x-pos, ?y: y-pos} [ COST_CUTOUT*cut-out(?x, ?y) ]]
 91   + [sum_{?x: x-pos, ?y: y-pos} [ COST_PUTOUT*put-out(?x, ?y) ]]
 92       // NOTE: if a target is out-of-fuel, it was burnt so still penalize (since it could not have been cut-out)
@@ -256,31 +257,31 @@ The reward was defined in the introduction of this documentation. It is only rep
 94        + [sum_{?x: x-pos, ?y: y-pos} [ PENALTY_NONTARGET_BURN*[ burning(?x, ?y) ^ ~TARGET(?x, ?y) ]]];
 ```
 
- ### 2.3.6 state-action-constraints Block
- The state-action-constraints block concludes the domain definition. It asserts logical expressions that must hold true at every time step. In our case, constraints include the fact that you cannot put-out a cell if it is not burning and you cannot cut-out a cell if it is already out of fuel. 
+### 2.3.6 state-action-constraints Block
+The state-action-constraints block concludes the domain definition. It asserts logical expressions that must hold true at every time step. In our case, constraints include the fact that you cannot put-out a cell if it is not burning and you cannot cut-out a cell if it is already out of fuel.
  ```
 96    state-action-constraints {
 97
-98        // Can only put-out if the cell is currently burning 
-99        forall_{?x : x-pos, ?y : y-os} [put-out(?x,?y) => burning(?x,?y)];
+98        // Can only put-out if the cell is currently burning
+99        forall_{?x : x-pos, ?y : y-pos} [put-out(?x,?y) => burning(?x,?y)];
 100
-101        // Can only cut-out if the cell is not already out of fuel 
+101        // Can only cut-out if the cell is not already out of fuel
 102        forall_{?x : x-pos, ?y : y-pos} [cut-out(?x,?y) => ~out-of-fuel(?x,?y)];
 103    };
 104  } // End of domain block
 ```
 
 ### 2.3.7 action-preconditions and state-invariants Blocks
-The state-action-constraints block has been included for backwards compatibility with previous RDDL specifications.  However, it is preferred instead if state-action-constraints are moved into action-preconditions or state-invariants blocks.  
+The state-action-constraints block has been included for backwards compatibility with previous RDDL specifications.  However, it is preferred instead if state-action-constraints are moved into action-preconditions or state-invariants blocks.
 
-The action-preconditions block is used for specifying constraints that restrict single or joint action usage in a particular state and is only checked when an action is executed.  
+The action-preconditions block is used for specifying constraints that restrict single or joint action usage in a particular state and is only checked when an action is executed.
 
 The state-invariants block is used for constraints that do not include any action fluents and thus represent state property assertions that should never be violated.  These constraints are checked in the initial state and every time a next state is reached.  The simulator should exit if a state-invariant is violated and hence the author should specify state-invariants as a way to verify expected domain properties.
 
 ### 2.4 non-fluents Block
-The domain block, as an individual rddl file, defines and formulates the problem. A separate file, often named as an instance of such domain, includes the declaration of all non-fluents and an instance (i.e. an example scenario to the domain model). In this subsection, structure of the non-fluents block will be discussed in the context of the wildfire example. 
+The domain block, as an individual rddl file, defines and formulates the problem. A separate file, often named as an instance of such domain, includes the declaration of all non-fluents and an instance (i.e. an example scenario to the domain model). In this subsection, structure of the non-fluents block will be discussed in the context of the wildfire example.
 
-The purpose of the non-fluents block is to essentially initialize the problem. This entails specifying the objects as well as overriding the default values of the non-fluents, **as required** (variables that are not overridden will retain their default values, as per the domain block). Recall that the map of the area is as follows: 
+The purpose of the non-fluents block is to essentially initialize the problem. This entails specifying the objects as well as overriding the default values of the non-fluents, **as required** (variables that are not overridden will retain their default values, as per the domain block). Recall that the map of the area is as follows:
 <div style="width:100%;text-align:center;">
   <a href="images/tutorial/fire0.png">
     <img src="images/tutorial/fire0.png" height="300" width="300" />
@@ -290,11 +291,11 @@ The purpose of the non-fluents block is to essentially initialize the problem. T
 ```
 1  non-fluents nf_wildfire_inst_mdp__1 {
 ```
-First, we specify which domain we are referencing. 
+First, we specify which domain we are referencing.
 ```
 2  domain = wildfire_mdp;
 ```
-Next, we define the objects, in the sub-block, objects. From the given map, it is evident that there are 9 cells, each identified by a unique combination of one of each of three x and y indices. This indicates that we define three x-pos objects and three y-pos objects. 
+Next, we define the objects, in the sub-block, objects. From the given map, it is evident that there are 9 cells, each identified by a unique combination of one of each of three x and y indices. This indicates that we define three x-pos objects and three y-pos objects.
 ```
 3  objects {
 4   x-pos : {x1,x2,x3};
@@ -367,7 +368,7 @@ Finally, we set the necessary TARGET variables to be true. The target cells are 
 ```
 
 ### 2.5 instance Block
-The instance block is located directly below the non-fluents block and may contain the specification of the domain, non-fluents, init-state, max-nondef-actions, horizon, and discount sections. 
+The instance block is located directly below the non-fluents block and may contain the specification of the domain, non-fluents, init-state, max-nondef-actions, horizon, and discount sections.
 
 ```
 54 instance wildfire_inst_mdp__1 {
@@ -377,7 +378,7 @@ First, we specify the domain and non-fluents we are referencing.
 55  domain = wildfire_mdp;
 56  non-fluents = nf_wildfire_inst_mdp__1;
 ```
-Next, we define an initial state where the wildfire first initiates (e.g. cell(x1,y3) in this instance). 
+Next, we define an initial state where the wildfire first initiates (e.g. cell(x1,y3) in this instance).
 <div style="width:100%;text-align:center;">
   <a href="images/tutorial/fire0.png">
     <img src="images/tutorial/fire0.png" height="300" width="300" />
@@ -394,7 +395,7 @@ Then, max-nondef-actions specifies the number of actions in a domain that can be
 ```
 61  max-nondef-actions = 1;
 ```
-In the end, since the objective evaluated by RDDL is the expected sum of discounted rewards over a number of trials, both the number of trials and the discount must be specified in the instance block. The number of trials is called the horizon, and in this example the horizon is set to 40, which indicates that the domain will be simulated for 40 time steps. The discount is set to 1, stipulating that the value of reward remains constant at every iteration. 
+In the end, since the objective evaluated by RDDL is the expected sum of discounted rewards over a number of trials, both the number of trials and the discount must be specified in the instance block. The number of trials is called the horizon, and in this example the horizon is set to 40, which indicates that the domain will be simulated for 40 time steps. The discount is set to 1, stipulating that the value of reward remains constant at every iteration.
 ```
 62  horizon  = 40;
 63  discount = 1.0;
@@ -402,13 +403,13 @@ In the end, since the objective evaluated by RDDL is the expected sum of discoun
 ```
 
 ## 2.6 Debugging
-Congratulations! You have just completed writing your first RDDL domain and instance! However, just like with any other programming language, writing the code is only the first step. Now, we must impart on the infamous journey of debugging. This section will outline how to debug both syntax and logical errors in RDDL. 
+Congratulations! You have just completed writing your first RDDL domain and instance! However, just like with any other programming language, writing the code is only the first step. Now, we must impart on the infamous journey of debugging. This section will outline how to debug both syntax and logical errors in RDDL.
 
 ## 2.6.1 Debugging Syntax Errors: Parser
 pyRDDLGym currently do not support syntax checking, this feature might be included in future releases.
 
 ## 2.6.2 Debugging Logical Errors: Visualization
-Once the code no longer contains syntax errors, it can be run without compile-time or run-time issues. However, this does not indicate that the code is logically correct. Thus, we must now run the code and study the output to ensure that it is performing as desired. PyDDGYM comes with a default text visualizer where the state dictionary is displayed on a white canvas. PyRDDLGym have prebuild visualizers for common RDDL domains. These visualizers can be found in /Visualizer folder. Users can also build their own visualizer classes in /Visualizer. 
+Once the code no longer contains syntax errors, it can be run without compile-time or run-time issues. However, this does not indicate that the code is logically correct. Thus, we must now run the code and study the output to ensure that it is performing as desired. PyDDGYM comes with a default text visualizer where the state dictionary is displayed on a white canvas. PyRDDLGym have prebuild visualizers for common RDDL domains. These visualizers can be found in /Visualizer folder. Users can also build their own visualizer classes in /Visualizer.
 To generate an visual output of the domain, we can run the following code:
 ```
 from pyRDDLGym import RDDLEnv
@@ -441,7 +442,7 @@ The above code only generate a single image. An example of wildfire animation is
     <img src="images/tutorial/wildfire.gif" height="250" width="250" />
   </a>
 </div>
-  
+
 |**Shape/Colour**   |**Meaning**  |
 |:------------------|:------------|
 | Light Green       | Non-Target  |
