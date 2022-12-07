@@ -278,7 +278,9 @@ The action-preconditions block is used for specifying constraints that restrict 
 
 The state-invariants block is used for constraints that do not include any action fluents and thus represent state property assertions that should never be violated.  These constraints are checked in the initial state and every time a next state is reached.  The simulator should exit if a state-invariant is violated and hence the author should specify state-invariants as a way to verify expected domain properties.
 
-### 2.4 non-fluents Block
+## 2.4 problem Blocks
+
+### 2.4.1 non-fluents Block
 The domain block, as an individual rddl file, defines and formulates the problem. A separate file, often named as an instance of such domain, includes the declaration of all non-fluents and an instance (i.e. an example scenario to the domain model). In this subsection, structure of the non-fluents block will be discussed in the context of the wildfire example.
 
 The purpose of the non-fluents block is to essentially initialize the problem. This entails specifying the objects as well as overriding the default values of the non-fluents, **as required** (variables that are not overridden will retain their default values, as per the domain block). Recall that the map of the area is as follows:
@@ -367,7 +369,7 @@ Finally, we set the necessary TARGET variables to be true. The target cells are 
 53
 ```
 
-### 2.5 instance Block
+### 2.4.2 instance Block
 The instance block is located directly below the non-fluents block and may contain the specification of the domain, non-fluents, init-state, max-nondef-actions, horizon, and discount sections.
 
 ```
@@ -402,13 +404,13 @@ In the end, since the objective evaluated by RDDL is the expected sum of discoun
 64 }
 ```
 
-## 2.6 Debugging
+## 2.5 Debugging
 Congratulations! You have just completed writing your first RDDL domain and instance! However, just like with any other programming language, writing the code is only the first step. Now, we must impart on the infamous journey of debugging. This section will outline how to debug both syntax and logical errors in RDDL.
 
-## 2.6.1 Debugging Syntax Errors: Parser
+### 2.5.1 Debugging Syntax Errors: Parser
 pyRDDLGym currently do not support syntax checking, this feature might be included in future releases.
 
-## 2.6.2 Debugging Logical Errors: Visualization
+### 2.5.2 Debugging Logical Errors: Visualization
 Once the code no longer contains syntax errors, it can be run without compile-time or run-time issues. However, this does not indicate that the code is logically correct. Thus, we must now run the code and study the output to ensure that it is performing as desired. PyDDGYM comes with a default text visualizer where the state dictionary is displayed on a white canvas. PyRDDLGym have prebuild visualizers for common RDDL domains. These visualizers can be found in /Visualizer folder. Users can also build their own visualizer classes in /Visualizer.
 To generate an visual output of the domain, we can run the following code:
 ```
@@ -450,10 +452,70 @@ The above code only generate a single image. An example of wildfire animation is
 | Light/Dark Grey   | Out of Fuel |
 | Red Triangle      | Burning     |
 
-## 3.0 Appendix (Wilfire Domain)
+## 3 Exercises
+
+In this lab, we will explore the RDDL language by making modifications to Wildfire followed by some experiments with the PROST planner.
+
+You should be familiar with the Wildfire overview before completing these exercises.
+
+### 3.1 Setup RDDL and PROST
+Follow the instructions above to get the latest PyRDDL library. Instructions for PROST will be coming soon...
+
+### 3.2 Modifying Wildfire
+
+In the following set of exercises we will make a number of modifications to the Wildfire domain in an effort to better understand RDDL. The changes should be made in the RDDL files in directory [[here](https://github.com/ataitler/IPPC2023/tree/main/rddl/wildfire-tutorial)], corresponding to the given version number below. Answers are given in the RDDLSim directory [`answers/`](https://github.com/ataitler/IPPC2023/tree/main/rddl/wildfire-tutorial/answers).
+
+Make the following version changes as described and run them in the simulator to verify the effects.
+
+#### **(v2 domain)**
+
+In the original Wildfire domain, note that a fire only stops burning when it is put-out.
+
+_In this version, modify Wildfire so that a cell stops burning as soon as it is out of fuel._
+
+Edit the domain file `wildfire_mdp_v2.rddl` and check the resulting domain.
+
+#### **(v2 instance)**
+
+In the original Wildfire instance, there are three x positions and three y positions for a total of 9 cells.
+
+_Modify the instance to expand the topology of the grid with an extra column x_pos "x4" (and hence a total of 12 cells)._
+
+_However, when connecting the new cells to neighboring cells, only allow horizontal connections to the new cells, i.e., (x3,Y)<->(x4,Y) for any y_pos Y, but not (x4,Y)<->(x4,Y+/-1)._
+
+_Don't forget symmetry if you want to make the new edges bidirectional (since the current Wildfire assumes unidirectional edges)._
+
+Edit the instance file `wildfire_inst_mdp__1_v2.rddl` and check the resulting instance.
+
+#### **(v3)**
+
+In the above v2 modification, a Wildfire will burn for at most two time steps (once the cell is out-of-fuel, the fire can no longer burn).
+
+_Extend the v2 modification to add a new fluent `almost-out-of-fuel` that allows a fire to burn for three time steps, i.e., a burning cell progresses to `almost-out-of-fuel` then `out-of-fuel`._
+
+Edit the domain file `wildfire_mdp_v3.rddl` and check the resulting domain.
+
+#### **(v4)**
+
+The original Wildfire domain only allows two actions: `put-out` and `cut-out`.
+
+_In this version we want to add a third action to allow a single aerial water drop which has high cost but puts out a fire in all cells neighboring the cell where the water is dropped._
+
+_Note that this change requires addition of an action fluent and changes to the `cpfs`, `rewards`, and `state-action-constraints` (to enforce a maximum of one water drop)._
+
+Edit the domain file `wildfire_mdp_v4.rddl` and check the resulting domain.
+
+
+### 3.3 Experimenting with PROST
+Details coming soon...
+
+## 4 Appendix (Wilfire RDDL)
+
+### 4.1 Domain
 [wildfire domain link](https://github.com/ataitler/pyRDDLGym/blob/main/pyRDDLGym/Examples/Wildfire/domain.rddl)
 
-## 3.1 Appendix (Wildfire Instance)
+### 4.2 Instance
 [wildfire instance link](https://github.com/ataitler/pyRDDLGym/blob/main/pyRDDLGym/Examples/Wildfire/instance0.rddl)
 
-This tutorial was done in collaboration with Bayaan Shalaby, John Zhou, Jason Zhou, Ayal Taitler, Xiaotian Liu and Scott Sanner.
+## 5 Credits
+This tutorial was done in collaboration with Bayaan Shalaby, John Zhou, Jason Zhou, Ayal Taitler, Xiaotian Liu and Scott Sanner. Further contributions to the exercises by [Christian Muise](http://www.haz.ca/).
