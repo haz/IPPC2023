@@ -45,6 +45,10 @@ More information about the infrastructure, how to use it and how to add user def
 
 - [Infrastructure guide](/infrastructure.md)
 
+pyRDDLGym also comes with baseline methods:
+
+- [Baselines](/planning.md)
+
 
 ## Domains
 
