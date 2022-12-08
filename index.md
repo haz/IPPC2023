@@ -182,6 +182,7 @@ At this point just join the google group (see link at the bottom) and announce y
 
 ## Contributors
 - [Michael Gimelfarb](https://mike-gimelfarb.github.io/) (University of Toronto, CA)
+- [Jihwan Jeong](https://jihwan-jeong.netlify.app/) (University of Toronto, CA)
 - [Sriram Gopalakrishnan](https://marirsg2.github.io/Sriram_Unravel/) (Arizona State University/J.P. Morgan, USA)
 - [Martin Mladenov](https://ataitler.github.io/IPPC2023/) (Google, BR)
 - [Jack Liu](https://ataitler.github.io/IPPC2023/) (University of Toronto, CA)
