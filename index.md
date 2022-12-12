@@ -137,12 +137,12 @@ Please add your thoughts to the discussion already underway in the Google group.
 The competition will include:
 - 8 domains
 - 5 instances per domain
-- 
-#### Procedure
+ 
+### Procedure
 The competition will be comprised of two phases.
 - Training phase: a week before the competition day, 3 evaluation instances of each domain will be released. For competitors to train/evaluate their methods on.
 - Evaluation phase: at the end of the week, each competitor will have a designated time and IP for a cloud resource. The competitors will connect, set up their solutions (the time for that will be taken into consideration), and execute their solutions 10 times for each instance. The average reward over these 10 runs will be the score for the instance. During evaluation, an additional 2 never seen before instances will be evaluated (in addition to the 3 already-released instances). I.e., 5 instances for each domain, 10 runs per instance.
-- 
+
 #### Score
 For each instance, the total reward will be normalized to the range [0,1], and the winner is the competitor who achieves the highest total score.
 (The minimum score for the competition will be 0 and the maximum will be 40)
