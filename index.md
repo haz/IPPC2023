@@ -45,6 +45,10 @@ More information about the infrastructure, how to use it and how to add user def
 
 - [Infrastructure guide](/infrastructure.md)
 
+pyRDDLGym also comes with baseline methods:
+
+- [Baselines](/planning.md)
+
 
 ## Domains
 
@@ -125,9 +129,26 @@ Note, that there are additional domains out there from past competitions (IPPC 2
 
 Past compeition were entirely discrete and as the focus of this year is continous and mix discrete-continous problems, their domains were not included in the pyRDDLGym repository. However everybody are welcome to take advantage of their existence. Just make sure they do not make use of something outside of pyRDDLGym RDDL subset. In that case the original [Java simulator](https://github.com/ssanner/rddlsim) can be used.
 
-
 ## Evaluation
-The exact details of the evaluation process are still in discussions (in order to be able to accomodate planing and learning approaches), but the general lines will follow the evaluation of the past [IPPC 2011](http://users.cecs.anu.edu.au/~ssanner/IPPC_2011/index.html) competition. 
+The exact details of the evaluation process are still in discussion (to be able to accommodate planning and learning approaches).
+Please add your thoughts to the discussion already underway in the Google group.
+
+### Domains
+The competition will include:
+- 8 domains
+- 5 instances per domain
+ 
+### Procedure
+The competition will be comprised of two phases.
+- Training phase: a week before the competition day, 3 evaluation instances of each domain will be released. For competitors to train/evaluate their methods on.
+- Evaluation phase: at the end of the week, each competitor will have a designated time and IP for a cloud resource. The competitors will connect, set up their solutions (the time for that will be taken into consideration), and execute their solutions 10 times for each instance. The average reward over these 10 runs will be the score for the instance. During evaluation, an additional 2 never seen before instances will be evaluated (in addition to the 3 already-released instances). I.e., 5 instances for each domain, 10 runs per instance.
+
+### Score
+For each instance, the total reward will be normalized to the range [0,1], and the winner is the competitor who achieves the highest total score.
+(The minimum score for the competition will be 0 and the maximum will be 40)
+The fine details are subject to discussion in the google-group and will be finalized by the end of January.
+
+<!-- but the general lines will follow the evaluation of the past [IPPC 2011](http://users.cecs.anu.edu.au/~ssanner/IPPC_2011/index.html) competition. 
 
 Domains (note numbers might change this year)
 - 8 domains
@@ -182,7 +203,8 @@ At this point just join the google group (see link at the bottom) and announce y
 
 ## Contributors
 - [Michael Gimelfarb](https://mike-gimelfarb.github.io/) (University of Toronto, CA)
-- [Sriram Gopalakrishnan](https://marirsg2.github.io/Sriram_Unravel/) (Arizona State University/J.P. Morgan, USA)
+- [Jihwan Jeong](https://jihwan-jeong.netlify.app/) (University of Toronto, CA)
+- [Sriram Gopalakrishnan](https://marirsg2.github.io/Sriram_Unravel/) (JP Morgan AI Research, USA)
 - [Martin Mladenov](https://ataitler.github.io/IPPC2023/) (Google, BR)
 - [Jack Liu](https://ataitler.github.io/IPPC2023/) (University of Toronto, CA)
 
