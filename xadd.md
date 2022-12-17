@@ -141,3 +141,6 @@ How will the graph look like for `out-of-fuel'(x1, y1)` variable? Here's the res
 Very neat!
 
 Now, you can go ahead and use this functionality to analyze a given RDDL instance.
+
+<hr>
+[Back to main page](index.md)
