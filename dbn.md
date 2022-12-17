@@ -109,3 +109,6 @@ huh, Nice! You can see from this diagram that the next state transition of the b
 To give you a taste of another example, here's the DBN visualization of the [Power Generation instance](https://github.com/ataitler/pyRDDLGym/tree/main/pyRDDLGym/Examples/Power_gen), in which intermediate variables are placed in the middle column:
 
 ![](images/PowerGeneration_inst_0.png "Power Generation")
+
+<hr>
+[Back to main page](index.md)
