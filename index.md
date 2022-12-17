@@ -47,7 +47,7 @@ More information about the infrastructure, how to use it and how to add user def
 
 pyRDDLGym also comes with a set of auxiliary utils and baseline methods:
 
-- [Baselines](/planning.md)
+- [Tools and Baselines](/planning.md)
 
 
 ## Domains
