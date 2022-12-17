@@ -128,15 +128,24 @@ context = model_xadd._context   # The XADD object that stores all XADD nodes
 context.save_graph(model_xadd.cpfs["burning_x1_y1'"], file_name="burning_x1_y1")
 ```
 
-Here's the [result](/images/burning_x1_y1.png):
+Here's the [result](/images/burning_x1_y1.pdf):
 
-![](images/burning_x1_y1.png "")
+<div style="width:100%;text-align:center;">
+  <a href="images/burning_x1_y1.png">
+    <img src="images/burning_x1_y1.png" height="300" width="500" />
+  </a>
+</div>
 
 If the figure is too small to comprehend, you can click the link above to check out the XADD graph. 
 
 How will the graph look like for `out-of-fuel'(x1, y1)` variable? Here's the result of `context.save_graph(model_xadd.cpfs["out-of-fuel_x1_y1'"], file_name="out_of_fuel_x1_y1")`:
 
-![](images/outoffuel_x1_y1.png)
+<div style="width:100%;text-align:center;">
+  <a href="images/outoffuel_x1_y1.png">
+    <img src="images/outoffuel_x1_y1.png" height="300" width="150" />
+  </a>
+</div>
+
 
 Very neat!
 
